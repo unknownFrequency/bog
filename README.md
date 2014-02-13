@@ -1,0 +1,1 @@
+Sample application for developing slides for GMU Rails course.

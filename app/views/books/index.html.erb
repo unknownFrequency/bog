@@ -1,0 +1,10 @@
+<h1>Books</h1>
+
+<p>Available as of
+  <%= formatted_time(@available_at) %></p>
+
+<ol>
+<% @books.each do |book| %>
+  <li><%= book %></li>
+<% end %>
+</ol>
