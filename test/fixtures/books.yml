@@ -3,11 +3,9 @@
 one:
   title: MyString
   author: MyString
-  description: MyString
   pages: 1
 
 two:
   title: MyString
   author: MyString
-  description: MyString
   pages: 1
