@@ -1,6 +1,8 @@
 Books::Application.routes.draw do
 
-  get "/books" => "books#index"
+  get "/books" => "books#index", as: 'books'
+  get "/books/:id" => "books#show", as: 'book'
+  #resources :books
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
