@@ -1,4 +1,4 @@
-<h1>Books</h1>
+<h1><%= pluralize(@books.size, 'book') %></h1>
 
 <p>Available as of
   <%= formatted_time(@available_at) %>
