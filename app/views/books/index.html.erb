@@ -1,10 +1,19 @@
 <h1>Books</h1>
 
 <p>Available as of
-  <%= formatted_time(@available_at) %></p>
+  <%= formatted_time(@available_at) %>
+</p>
 
-<ol>
+<ul>
 <% @books.each do |book| %>
-  <li><%= book %></li>
+  <li>
+    <article class="book">
+      <header><%= book.title %></header>
+      <p><label>Author:</label> <%= book.author %></p>
+      <p><label>Pages:</label> <%= number_with_delimiter(book.pages) %></p>
+      <p><label>Price:</label> <%= number_to_currency(book.price) %></p>
+    </article>
+  </li>
 <% end %>
-</ol>
+</ul>
+
