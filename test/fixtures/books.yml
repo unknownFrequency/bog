@@ -11,3 +11,11 @@ ender:
   author: 'Orson Scott Card'
   pages: 352
   price: 4.83
+
+<% 10.times do |n| %>
+book_<%= n %>:
+  title: <%= "book#{n}" %>
+  author: <%= "author#{n}" %>
+  pages: <%= "#{n}00" %>
+  price: <%= "#{n}.00" %>
+<% end %>
