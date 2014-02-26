@@ -1,12 +1,12 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
+hobbit:
   title: 'The Hobbit'
   author: 'Tolkien'
   pages: 384
   price: 22.68
 
-two:
+ender:
   title: "Ender's Game"
   author: 'Orson Scott Card'
   pages: 352
