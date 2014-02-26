@@ -30,4 +30,13 @@ class BookTest < ActiveSupport::TestCase
     assert_equal "Ender's Game", book.title
   end
 
+  test "update an existing book" do
+    book = books(:hobbit)
+    book.author = 'J.R.R. Tolkien'
+    book.save
+
+    updated = Book.find(book.id)
+    assert_equal 'J.R.R. Tolkien', updated.author
+  end
+
 end
