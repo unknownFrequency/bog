@@ -1,7 +1,9 @@
 Books::Application.routes.draw do
 
   get "/books" => "books#index", as: 'books'
+  get "books/new" => "books#new", as: 'new_book'
   get "/books/:id" => "books#show", as: 'book'
+  post "books" => "books#create"
   #resources :books
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -10,7 +10,7 @@ class BooksControllerTest < ActionController::TestCase
 
     assert_select "h1", 1
     assert_select "h1", "#{Book.count} books"
-    assert_select "a", Book.count
+    assert_select "ul a", Book.count
   end
 
   test "should get show" do
