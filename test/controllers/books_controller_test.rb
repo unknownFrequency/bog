@@ -13,17 +13,17 @@ class BooksControllerTest < ActionController::TestCase
   end
 
   test "should get show" do
-    hobbit_book = books(:hobbit)
-    get :show, id: hobbit_book.id
+    book = books(:hobbit)
+    get :show, id: book.id
     assert_response :success
 
     assert_select "header h2", "The Hobbit"
 
     assert_select "p" do |elements|
       html = elements.join(" ")
-      assert html.include?(hobbit_book.author), "should contain #{hobbit_book.author}"
-      assert html.include?(hobbit_book.pages.to_s), "should contain #{hobbit_book.pages}"
-      assert html.include?(hobbit_book.price.to_s), "should contain #{hobbit_book.price}"
+      assert html.include?(book.author), "should contain #{book.author}"
+      assert html.include?(book.pages.to_s), "should contain #{book.pages}"
+      assert html.include?(book.price.to_s), "should contain #{book.price}"
     end
 
     assert_select "a#all_books_link", "All Books"
