@@ -9,6 +9,7 @@ class BooksControllerTest < ActionController::TestCase
     assert_not_nil assigns(:books)
 
     assert_select "h1", 1
+    assert_select "h1", "#{Book.count} books"
     assert_select "a", Book.count
   end
 
