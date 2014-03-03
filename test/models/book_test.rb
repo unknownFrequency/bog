@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class BookTest < ActiveSupport::TestCase
+  fixtures :books
 
   def setup
     @book = Book.new
