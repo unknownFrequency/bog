@@ -6,6 +6,7 @@ Books::Application.routes.draw do
   post "books" => "books#create"
   get "/books/:id/edit" => "books#edit", as: 'edit_book'
   patch "/books/:id" => "books#update"
+  delete "/books/:id" => "books#destroy"
   #resources :books
 
   # The priority is based upon order of creation: first created -> highest priority.

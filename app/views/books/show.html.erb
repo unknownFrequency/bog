@@ -9,3 +9,7 @@
 
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'All Books', books_path, id: 'all_books_link' %>
+
+<%= button_to "Delete #{@book.title}", @movie,
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
