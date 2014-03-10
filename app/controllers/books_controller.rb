@@ -17,16 +17,22 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
-    @book.save
-    redirect_to @book
+    if @book.save
+      redirect_to @book
+    else
+      render :new
+    end
   end
 
   def edit
   end
 
   def update
-    @book.update(book_params)
-    redirect_to @book
+    if @book.update(book_params)
+      redirect_to @book
+    else
+      render :edit
+    end
   end
 
   def destroy
