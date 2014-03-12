@@ -21,3 +21,25 @@
 form.button_to div, form.button_to div input {
     display:inline;
 }*/
+
+.flash {
+  color: #444444;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
+  box-shadow: #ffc 0 0 4px;
+}
+
+.flash.notice {
+  background-color: #dbffdd;
+}
+
+.flash.alert {
+  background-color: #ffe1de;
+}
+
+.flash.danger {
+  background-color: #ffa715;
+}

@@ -1,5 +1,7 @@
 <h1><%= pluralize(@books.size, 'book') %></h1>
 
+<%= render 'shared/flashes' %>
+
 <p>Available as of
   <%= formatted_time(@available_at) %>
 </p>

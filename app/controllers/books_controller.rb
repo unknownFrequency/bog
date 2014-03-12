@@ -6,6 +6,9 @@ class BooksController < ApplicationController
   def index
     @available_at = Time.now
     @books = Book.all
+
+    flash[:notice] = "Today's special is 30% off all Sci-Fi books!"
+    # flash[:alert] = "We'll be down for maintenance Sunday. Sorry."
   end
 
   def show
@@ -18,7 +21,7 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
     if @book.save
-      redirect_to @book
+      redirect_to @book, notice: "#{@book.title} was created!"
     else
       render :new
     end
@@ -29,7 +32,7 @@ class BooksController < ApplicationController
 
   def update
     if @book.update(book_params)
-      redirect_to @book
+      redirect_to @book, notice: "#{@book.title} was updated!"
     else
       render :edit
     end
@@ -37,7 +40,7 @@ class BooksController < ApplicationController
 
   def destroy
     @book.destroy
-    redirect_to books_url
+    redirect_to books_url, alert: "#{@book.title} was deleted!"
   end
 
   private
