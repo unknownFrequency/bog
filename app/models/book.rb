@@ -10,4 +10,8 @@ class Book < ActiveRecord::Base
             numericality: { greater_than_or_equal_to: 0 },
             if: "!price.blank?"
 
+  scope :bargains, -> { where('price < 10.00') }
+
+  scope :by, ->(author) { where('author = ?', author) }
+
 end
