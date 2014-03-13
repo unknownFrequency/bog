@@ -5,11 +5,8 @@ module BooksHelper
   end
 
   def image_for(book)
-    if book.image_file_name.blank?
-      image_tag('placeholder.png')
-    else
-      image_tag(book.image_file_name)
-    end
+    file_name = book.image_file_name.blank? ? 'placeholder.png' : book.image_file_name
+    image_tag(file_name, class: 'img-rounded')
   end
 
 end
