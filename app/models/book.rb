@@ -2,7 +2,9 @@ class Book < ActiveRecord::Base
 
   GENRES = ['Sci-Fi', 'Mystery', 'Fantasy', 'Mythology']
 
-  validates :title, :author, :pages, :price, :genre, :published_on, presence: true
+  validates :title, :abstract, :author, :pages, :price, :genre, :published_on, presence: true
+
+  validates :abstract, length: { minimum: 15 }, unless: "abstract.blank?"
 
   validates :pages,
             numericality: { only_integer: true, greater_than_or_equal_to: 0 },
