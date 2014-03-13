@@ -6,8 +6,10 @@
     <h2><%= @book.title %></h2>
   </header>
   <p><label>Author:</label> <%= @book.author %></p>
+  <p><label>Genre:</label> <%= @book.genre %></p>
   <p><label>Pages:</label> <%= number_with_delimiter(@book.pages) %></p>
   <p><label>Price:</label> <%= number_to_currency(@book.price) %></p>
+  <p><label>Published On:</label> <%= @book.published_on %></p>
 </article>
 
 <%= link_to 'Edit', edit_book_path(@book) %> |
