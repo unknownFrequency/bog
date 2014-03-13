@@ -9,6 +9,7 @@
 <ul>
 <% @books.each do |book| %>
   <li>
+    <%= image_for(book) %>
     <%= link_to(book.title, book) %>
     by <%= book.author %>
   </li>
