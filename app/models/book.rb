@@ -1,6 +1,8 @@
 class Book < ActiveRecord::Base
 
-  validates :title, :author, :pages, :price, presence: true
+  GENRES = ['Sci-Fi', 'Mystery', 'Fantasy', 'Mythology']
+
+  validates :title, :author, :pages, :price, :genre, :published_on, presence: true
 
   validates :pages,
             numericality: { only_integer: true, greater_than_or_equal_to: 0 },
@@ -14,6 +16,8 @@ class Book < ActiveRecord::Base
     with: /\w+.(gif|jpg|png)\z/i,
     message: "must reference a GIF, JPG, or PNG image"
   }
+
+  validates :genre, inclusion: { in: GENRES }, unless: "genre.blank?"
 
   scope :bargains, -> { where('price < 10.00') }
 

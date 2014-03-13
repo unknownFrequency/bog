@@ -9,25 +9,37 @@
   <div class="form-group">
     <%= f.label :author, class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
-      <%= f.text_field :author, autofocus: true, class: "form-control" %>
+      <%= f.text_field :author, class: "form-control" %>
     </div>
   </div>
   <div class="form-group">
     <%= f.label :pages, class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
-      <%= f.text_field :pages, autofocus: true, class: "form-control" %>
+      <%= f.text_field :pages, class: "form-control" %>
     </div>
   </div>
   <div class="form-group">
     <%= f.label :price, class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
-      <%= f.text_field :price, autofocus: true, class: "form-control" %>
+      <%= f.text_field :price, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :genre, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.select :genre, Book::GENRES, { prompt: "Pick one" }, { class: "form-control" } %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :published_on, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.date_select :published_on, { start_year: 1800, prompt: true, order: [ :month, :day, :year ] }, { } %>
     </div>
   </div>
   <div class="form-group">
     <%= f.label :image_file_name, class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
-      <%= f.text_field :image_file_name, autofocus: true, class: "form-control" %>
+      <%= f.text_field :image_file_name, class: "form-control" %>
     </div>
   </div>
   <p>
