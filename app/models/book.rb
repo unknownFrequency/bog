@@ -1,5 +1,5 @@
 class Book < ActiveRecord::Base
-  GENRES = %w(Sci-Fi Mystery Fantasy Mythology)
+  GENRES = %w(Sci-Fi Fiction Tragedy Mystery Fantasy Mythology)
 
   validates :title, :abstract, :author, :pages, :price, :genre, :published_on, presence: true
 

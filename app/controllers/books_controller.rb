@@ -4,7 +4,7 @@ class BooksController < ApplicationController
 
   def index
     @available_at = Time.now
-    @books = Book.all
+    @books = Book.order(:title)
 
     flash[:notice] = "Today's special is 30% off all Sci-Fi books!"
     # flash[:alert] = "We'll be down for maintenance Sunday. Sorry."
