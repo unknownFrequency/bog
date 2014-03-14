@@ -10,6 +10,11 @@ class BooksController < ApplicationController
     # flash[:alert] = "We'll be down for maintenance Sunday. Sorry."
   end
 
+  def bargains
+    @available_at = Time.now
+    @books = Book.bargains.order(:title)
+  end
+
   def show
   end
 
