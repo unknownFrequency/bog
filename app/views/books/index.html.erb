@@ -1,7 +1,5 @@
 <h1><%= pluralize(@books.size, 'book') %></h1>
 
-<%= render 'shared/flashes' %>
-
 <p>Available as of
   <%= formatted_time(@available_at) %>
 </p>
@@ -15,8 +13,7 @@
       <% end %>
     </div>
     <div class="col-sm-10">
-      <%= link_to(book.title, book) %><br/>
-    by <%= book.author %>
+      <h3><%= link_to(book.title, book) %> <small>by <%= book.author %></small></h3>
     </div>
   </div>
 <% end %>
