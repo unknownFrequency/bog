@@ -1,22 +1,22 @@
-<div id="sidebar" data-spy="affix" data-offset-top="60">
+<div id="sidebar" data-spy="affix" data-offset-top="100">
 <div class="panel panel-primary">
   <div class="panel-heading">
     <h3 class="panel-title">Navigation</h3>
   </div>
   <div class="panel-body">
     <p>
-      <%= link_to books_path, class: 'btn btn-default col-md-9' do %>
-        <span class="glyphicon glyphicon-list"></span> All Books
+      <%= link_to books_path, class: 'btn btn-default col-md-12' do %>
+        <span class="pull-left glyphicon glyphicon-list"></span> All Books
       <% end %>
     </p>
     <p>
-      <%= link_to books_path, class: 'btn btn-default col-md-9' do %>
-        <span class="glyphicon glyphicon-star"></span> Bargains
+      <%= link_to books_path, class: 'btn btn-default col-md-12' do %>
+        <span class="pull-left glyphicon glyphicon-star"></span> Bargains
       <% end %>
     </p>
     <p>
-      <%= link_to new_book_path, class: 'btn btn-default col-md-9' do %>
-        <span class="glyphicon glyphicon-plus"></span> Create Book
+      <%= link_to new_book_path, class: 'btn btn-default col-md-12' do %>
+        <span class="pull-left glyphicon glyphicon-plus"></span> Create Book
       <% end %>
     </p>
   </div>
