@@ -37,8 +37,15 @@ select.form-control {
 
 #sidebar {
   width: 200px;
+
+  &.affix {
+    position: fixed;
+    top: 20px;
+  }
+
+  a.btn {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
 }
-#sidebar.affix {
-  position: fixed;
-  top: 20px;
-}
+
