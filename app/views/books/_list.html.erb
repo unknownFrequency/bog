@@ -13,6 +13,12 @@
 <% end %>
 </div>
 
-<p class="pull-right">
-  <%= pluralize(books.size, 'book') %> available as of <%= formatted_time(available_at) %>
-</p>
+<div>
+  <div class="pull-left page-entries-info">
+  <%= page_entries_info books %>
+  </div>
+
+  <div class="pull-right">
+  <%= paginate books %>
+  </div>
+</div>

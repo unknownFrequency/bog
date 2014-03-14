@@ -3,16 +3,14 @@ class BooksController < ApplicationController
                 only: [:show, :edit, :update, :destroy]
 
   def index
-    @available_at = Time.now
-    @books = Book.order(:title)
+    @books = Book.order(:title).page params[:page]
 
     flash[:notice] = "Today's special is 30% off all Sci-Fi books!"
     # flash[:alert] = "We'll be down for maintenance Sunday. Sorry."
   end
 
   def bargains
-    @available_at = Time.now
-    @books = Book.bargains.order(:title)
+    @books = Book.bargains.order(:title).page params[:page]
   end
 
   def show
