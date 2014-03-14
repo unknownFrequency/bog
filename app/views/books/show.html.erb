@@ -11,9 +11,12 @@
   <p><label>Published On:</label> <%= @book.published_on %></p>
 </article>
 
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'All Books', books_path, id: 'all_books_link' %>
-
-<%= button_to "Delete #{@book.title}", @movie,
+<div>
+<%= link_to 'Edit', edit_book_path(@book), class: 'btn btn-default' %>
+<span class='inline-button-form'>
+  <%= button_to "Delete #{@book.title}", @movie,
                method: :delete,
-               data: { confirm: 'Are you sure?' } %>
+               data: { confirm: 'Are you sure?' },
+               class: 'btn btn-danger' %>
+</span>
+</div>
