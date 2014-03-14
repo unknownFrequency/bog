@@ -19,7 +19,7 @@
     <%= f.select :genre, Book::GENRES, { prompt: "Pick one" }, { class: "form-control" } %>
   <% end %>
   <%= bootstrap_form_field(f, :published_on) do %>
-    <%= f.date_select :published_on, { start_year: 1800, prompt: true, order: [ :month, :day, :year ] }, { } %>
+    <%= f.date_select :published_on, { start_year: 1800, prompt: true, order: [ :month, :day, :year ] }, { class: "form-control date-select" } %>
   <% end %>
   <%= bootstrap_form_field(f, :image_file_name) do %>
     <%= f.text_field :image_file_name, class: "form-control" %>

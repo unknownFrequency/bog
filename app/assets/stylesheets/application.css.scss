@@ -18,3 +18,11 @@
 body {
   margin-bottom: 60px;
 }
+
+select.form-control {
+  width:auto;
+
+  &.date-select {
+    display: inline;
+  }
+}
