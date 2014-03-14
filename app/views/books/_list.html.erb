@@ -13,9 +13,6 @@
 <% end %>
 </div>
 
-<p class="pull-left">
-  <%= link_to 'New Book', new_book_path, class: 'btn btn-default' %>
-</p>
 <p class="pull-right">
   <%= pluralize(books.size, 'book') %> available as of <%= formatted_time(available_at) %>
 </p>
