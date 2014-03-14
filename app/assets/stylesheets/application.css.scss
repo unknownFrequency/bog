@@ -26,3 +26,11 @@ select.form-control {
     display: inline;
   }
 }
+
+#sidebar {
+  width: 200px;
+}
+#sidebar.affix {
+  position: fixed;
+  top: 20px;
+}

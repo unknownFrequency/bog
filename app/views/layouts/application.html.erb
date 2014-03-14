@@ -9,10 +9,15 @@
 <body>
   <div class="container">
     <%= render '/layouts/header' %>
-    <%= render '/layouts/flashes' %>
   </div>
   <div class="container">
-    <%= yield %>
+    <div class="col-md-9">
+      <%= render '/layouts/flashes' %>
+      <%= yield %>
+    </div>
+    <div class="col-md-3">
+      <%= render '/layouts/sidebar' %> 
+    </div>
   </div>
   <%= render '/layouts/footer' %>
 </body>
