@@ -8,6 +8,8 @@ Books::Application.routes.draw do
   # patch "/books/:id" => "books#update"
   # delete "/books/:id" => "books#destroy"
 
+  root 'books#index'
+
   resources :books
 
   # The priority is based upon order of creation: first created -> highest priority.
