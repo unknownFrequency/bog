@@ -11,8 +11,8 @@ Books::Application.routes.draw do
   root 'books#index'
 
   resources :books do
-    get 'page/:page', :action => :index, :on => :collection
     collection do
+      get 'page/:page', :action => :index
       get 'bargains'
       get 'bargains/page/:page', :action => :bargains
     end
