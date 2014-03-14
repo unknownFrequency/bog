@@ -14,4 +14,3 @@ class TestBook < MiniTest::Unit::TestCase
     assert_equal 'Tolkien', @book.author
   end
 end
-

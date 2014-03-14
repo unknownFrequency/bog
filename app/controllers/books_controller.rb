@@ -1,7 +1,6 @@
 class BooksController < ApplicationController
-
   before_action :set_book,
-                only: [ :show, :edit, :update, :destroy ]
+                only: [:show, :edit, :update, :destroy]
 
   def index
     @available_at = Time.now
@@ -52,5 +51,4 @@ class BooksController < ApplicationController
   def set_book
     @book = Book.find(params[:id])
   end
-
 end

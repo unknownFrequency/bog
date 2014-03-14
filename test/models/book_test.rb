@@ -7,16 +7,16 @@ class BookTest < ActiveSupport::TestCase
     @book = Book.new
   end
 
-  test "new books have no id" do
+  test 'new books have no id' do
     assert_nil @book.id
   end
 
-  test "author remembers its value" do
+  test 'author remembers its value' do
     @book.author = 'Tolkien'
     assert_equal 'Tolkien', @book.author
   end
 
-  test "saving a book" do
+  test 'saving a book' do
     @book.title = 'The Two Towers'
     @book.abstract = 'Frodo returns in the second book in the LOTR series.'
     @book.author = 'Tolkien'
@@ -30,13 +30,13 @@ class BookTest < ActiveSupport::TestCase
     assert_not_nil two_towers.id
   end
 
-  test "find an existing book" do
+  test 'find an existing book' do
     book = Book.find_by(title: "Ender's Game")
     assert_not_nil book.id
     assert_equal "Ender's Game", book.title
   end
 
-  test "update an existing book" do
+  test 'update an existing book' do
     book = books(:hobbit)
     book.author = 'J.R.R. Tolkien'
     book.save!
@@ -44,5 +44,4 @@ class BookTest < ActiveSupport::TestCase
     updated = Book.find(book.id)
     assert_equal 'J.R.R. Tolkien', updated.author
   end
-
 end
