@@ -2,20 +2,29 @@
 
 hobbit:
   title: 'The Hobbit'
+  abstract: 'A story about...'
   author: 'Tolkien'
   pages: 384
   price: 22.68
+  genre: 'Sci-Fi'
+  published_on: 1937-09-21
 
 ender:
   title: "Ender's Game"
+  abstract: 'An intriguing story...'
   author: 'Orson Scott Card'
   pages: 352
   price: 4.83
+  genre: 'Sci-Fi'
+  published_on: 1985-01-01
 
 <% 10.times do |n| %>
 book_<%= n %>:
   title: <%= "book#{n}" %>
-  author: <%= "author#{n}" %>
+  abstract: <%= "this is the abstract for book #{n}" %>
+  author: <%= "author for book #{n}" %>
   pages: <%= "#{n}00" %>
   price: <%= "#{n}.00" %>
+  genre: <%= ((Book::GENRES.size - 1) * rand).round %>
+  published_on: <%= Date.today - (rand * 100).round.years - (rand * 365).round.days %>
 <% end %>

@@ -11,8 +11,10 @@ module ApplicationHelper
     div_style = ['form-group']
     has_any_errors = f.object.errors.present? 
     has_field_errors = f.object.errors[field].present?
-    div_style << (has_field_errors ? 'has-error' : 'has-success')
-    div_style << 'has-feedback' if has_any_errors
+    if has_any_errors
+      div_style << 'has-feedback'
+      div_style << (has_field_errors ? 'has-error' : 'has-success')
+    end
     content_tag(:div, class:div_style.join(' ')) do
       inner = f.label(field, class: 'col-sm-2 control-label')
       inner += content_tag(:div, class:'col-sm-10') do

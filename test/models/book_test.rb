@@ -18,10 +18,15 @@ class BookTest < ActiveSupport::TestCase
 
   test "saving a book" do
     @book.title = 'The Two Towers'
+    @book.abstract = 'Frodo returns in the second book in the LOTR series.'
     @book.author = 'Tolkien'
-    @book.save
+    @book.pages = 300
+    @book.price = 9.99
+    @book.genre = 'Fantasy'
+    @book.published_on = Time.local(1937, 9, 21)
+    @book.save!
 
-    two_towers = Book.find_by(title: 'The Two Towers', author: 'Tolkien')
+    two_towers = Book.find_by(title: 'The Two Towers')
     assert_not_nil two_towers.id
   end
 
@@ -34,7 +39,7 @@ class BookTest < ActiveSupport::TestCase
   test "update an existing book" do
     book = books(:hobbit)
     book.author = 'J.R.R. Tolkien'
-    book.save
+    book.save!
 
     updated = Book.find(book.id)
     assert_equal 'J.R.R. Tolkien', updated.author
