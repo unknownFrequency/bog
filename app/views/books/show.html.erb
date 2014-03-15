@@ -3,7 +3,7 @@
     <%= image_for(@book) %>
     <h2><%= @book.title %></h2>
   </header>
-  <p><label>Abstract:</label> <%= @book.abstract %></p>
+  <p><%= @book.abstract %></p>
   <p><label>Author:</label> <%= @book.author %></p>
   <p><label>Genre:</label> <%= @book.genre %></p>
   <p><label>Pages:</label> <%= number_with_delimiter(@book.pages) %></p>
