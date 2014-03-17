@@ -11,19 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_140_313_220_611) do
+ActiveRecord::Schema.define(version: 20140317180814) do
 
-  create_table 'books', force: true do |t|
-    t.string   'title'
-    t.string   'author'
-    t.integer  'pages'
-    t.datetime 'created_at'
-    t.datetime 'updated_at'
-    t.decimal  'price'
-    t.string   'image_file_name'
-    t.string   'genre'
-    t.date     'published_on'
-    t.string   'abstract'
+  create_table "books", force: true do |t|
+    t.string   "title"
+    t.string   "author"
+    t.integer  "pages"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.decimal  "price"
+    t.string   "image_file_name"
+    t.string   "genre"
+    t.date     "published_on"
+    t.string   "abstract"
   end
+
+  create_table "reviews", force: true do |t|
+    t.string   "name"
+    t.string   "summary"
+    t.text     "comment"
+    t.integer  "book_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "reviews", ["book_id"], name: "index_reviews_on_book_id"
 
 end
