@@ -1,7 +1,5 @@
 Books::Application.routes.draw do
 
-  resources :reviews
-
   # get "/books" => "books#index", as: 'books'
   # get "/books/new" => "books#new", as: 'new_book'
   # get "/books/:id" => "books#show", as: 'book'
@@ -18,6 +16,8 @@ Books::Application.routes.draw do
       get 'bargains'
       get 'bargains/page/:page', :action => :bargains
     end
+
+    resources :reviews
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
