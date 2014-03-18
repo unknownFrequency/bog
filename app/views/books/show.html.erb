@@ -9,14 +9,18 @@
   <p><label>Pages:</label> <%= number_with_delimiter(@book.pages) %></p>
   <p><label>Price:</label> <%= number_to_currency(@book.price) %></p>
   <p><label>Published On:</label> <%= @book.published_on %></p>
-</article>
+  <p>
+    Read all <%= link_to pluralize(@book.reviews.size, 'review'), book_reviews_path(@book) %>
+  </p>
 
-<div>
-<%= link_to 'Edit', edit_book_path(@book), class: 'btn btn-default' %>
-<span class='inline-button-form'>
-  <%= button_to "Delete #{@book.title}", @movie,
-               method: :delete,
-               data: { confirm: 'Are you sure?' },
-               class: 'btn btn-danger' %>
-</span>
-</div>
+  <div id="book-show-buttons">
+    <%= link_to 'Edit', edit_book_path(@book), class: 'btn btn-default' %>
+    <span class='inline-button-form'>
+      <%= button_to "Delete #{@book.title}", @movie,
+                   method: :delete,
+                   data: { confirm: 'Are you sure?' },
+                   class: 'btn btn-danger' %>
+    </span>
+  </div>
+
+</article>

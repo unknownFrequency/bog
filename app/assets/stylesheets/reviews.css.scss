@@ -1,3 +1,45 @@
 // Place all the styles related to the reviews controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "colors";
+
+ol#reviews {
+  font-size: 1.2em;
+  list-style: none;
+  padding: 0;
+
+  li {
+    margin: 1.5em 0;
+    border-bottom: 1px solid lighten($primary-text-color, 50%);
+
+    span {
+
+      &.stars {
+        font-weight: bold;
+      }
+
+      &.name {
+        font-weight: normal;
+      }
+
+      &.date {
+        font-size: 0.9em;
+        font-weight: bold;
+        color: $secondary-text-color;
+      }
+    }
+
+    p {
+      font-size: 0.95em;
+      margin: 1em 2em;
+    }
+  }
+}
+
+span#review-count {
+  font-style: italic;
+  color: $secondary-text-color;
+}
+
+

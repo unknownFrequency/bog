@@ -1,0 +1,18 @@
+<header>
+  <h3>Reviews for <%= link_to(@book.title, @book) %></h3>
+  <span id="review-count">(<%= pluralize(@reviews.size, 'review') %>)</span>
+</header>
+
+<ol id="reviews">
+  <% @reviews.each do |review| %>
+    <li>
+      <span class="stars"><%= pluralize(review.stars, 'star') %></span>
+      <span class="name">by <%= review.name %></span>
+      <span class="date"><%= time_ago_in_words(review.created_at) %> ago</span>
+      <p>
+        &quot;<%= review.comment %>&quot;
+      </p>
+    </li>
+  <% end %>
+</ol>
+
