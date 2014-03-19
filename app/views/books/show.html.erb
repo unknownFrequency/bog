@@ -9,6 +9,7 @@
   <p><label>Pages:</label> <%= number_with_delimiter(@book.pages) %></p>
   <p><label>Price:</label> <%= number_to_currency(@book.price) %></p>
   <p><label>Published On:</label> <%= @book.published_on %></p>
+  <p><label>Average Review:</label> <%= @book.average_stars %></p>
   <p>
     Read all <%= link_to pluralize(@book.reviews.size, 'review'), book_reviews_path(@book) %>
   </p>

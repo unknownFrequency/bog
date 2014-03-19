@@ -1,5 +1,5 @@
 class Book < ActiveRecord::Base
-  GENRES = %w(Sci-Fi Fiction Tragedy Mystery Fantasy Mythology)
+  GENRES = %w(Sci-Fi Fiction Non-Fiction Tragedy Mystery Fantasy Mythology)
 
   validates :title, :abstract, :author, :pages, :price, :genre, :published_on, presence: true
 
@@ -25,4 +25,8 @@ class Book < ActiveRecord::Base
   scope :by, ->(author) { where('author = ?', author) }
 
   has_many :reviews
+
+  def average_stars
+    reviews.average(:stars)
+  end
 end
