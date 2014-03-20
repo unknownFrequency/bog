@@ -1,7 +1,9 @@
 <article class="book">
   <header>
-    <%= image_for(@book) %>
     <h2 class="text-primary"><%= @book.title %></h2>
+    <aside class="book-cover">
+      <%= image_for(@book) %>
+    </aside>
   </header>
   <p><%= @book.abstract %></p>
 
