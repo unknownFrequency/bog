@@ -29,4 +29,8 @@ class Book < ActiveRecord::Base
   def average_stars
     reviews.average(:stars)
   end
+
+  def recent_reviews(recent_count = 2)
+    reviews.order('created_at desc').limit(recent_count)
+  end
 end

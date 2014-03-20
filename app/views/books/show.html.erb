@@ -1,20 +1,51 @@
 <article class="book">
   <header>
     <%= image_for(@book) %>
-    <h2><%= @book.title %></h2>
+    <h2 class="text-primary"><%= @book.title %></h2>
   </header>
   <p><%= @book.abstract %></p>
-  <p><label>Author:</label> <%= @book.author %></p>
-  <p><label>Genre:</label> <%= @book.genre %></p>
-  <p><label>Pages:</label> <%= number_with_delimiter(@book.pages) %></p>
-  <p><label>Price:</label> <%= number_to_currency(@book.price) %></p>
-  <p><label>Published On:</label> <%= @book.published_on %></p>
-  <p><label>Average Review:</label> <%= format_average_stars(@book) %></p>
-  <p>
-    Read all <%= link_to pluralize(@book.reviews.size, 'review'), book_reviews_path(@book) %>
-  </p>
 
-  <div id="book-show-buttons">
+  <section>
+    <header><h4 class="text-primary">Details</h4></header>
+
+    <p>
+      <label>Author:</label>
+      <%= @book.author %>
+    </p>
+    <p>
+      <label>Genre:</label>
+      <%= @book.genre %>
+    </p>
+    <p>
+      <label>Pages:</label>
+      <%= number_with_delimiter(@book.pages) %>
+    </p>
+    <p>
+      <label>Price:</label>
+      <%= number_to_currency(@book.price) %>
+    </p>
+    <p>
+      <label>Published On:</label>
+      <%= @book.published_on %>
+    </p>
+    <p>
+      <label>Average Review:</label>
+      <%= format_average_stars(@book) %>
+      <span class="text-muted">(out of <%= pluralize(@book.reviews.size, 'review') %>)</span>
+    </p>
+  </section>
+
+  <% if @book.recent_reviews.any? %>
+  <section>
+    <header><h4 class="text-primary">Recent Reviews</h4></header>
+    <%= render partial: 'shared/reviews', locals: { reviews: @book.recent_reviews } %>
+    <p>
+      Read all <%= link_to pluralize(@book.reviews.size, 'review'), book_reviews_path(@book) %>
+    </p>
+  </section>
+  <% end %>
+
+  <nav id="book-show-buttons">
     <%= link_to 'Edit', edit_book_path(@book), class: 'btn btn-default' %>
     <span class='inline-button-form'>
       <%= button_to "Delete #{@book.title}", @movie,
@@ -22,6 +53,6 @@
                    data: { confirm: 'Are you sure?' },
                    class: 'btn btn-danger' %>
     </span>
-  </div>
+  </nav>
 
 </article>
