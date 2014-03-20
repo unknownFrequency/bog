@@ -7,4 +7,7 @@
 
 <%= render partial: 'shared/reviews', locals: { reviews: @reviews } %>
 
-<%= link_to 'Back', @book %>
+<nav>
+  <%= link_to 'Write a Review', new_book_review_path(@book), class: 'btn btn-primary' %>
+  <%= link_to 'Back', @book, class: 'btn btn-link' %>
+</nav>

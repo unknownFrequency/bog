@@ -39,4 +39,20 @@ span#review-count {
   color: $secondary-text-color;
 }
 
+div {
+  .stars {
+    input[type="radio"] {
+      display: inline-block;
+      margin-right: 3px;
+    }
 
+    span.star {
+      margin-right: 10px;
+      font-size: 1.1em;
+    }
+
+    div.field_with_errors {
+      display: inline;
+    }
+  }
+}
