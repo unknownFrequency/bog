@@ -13,7 +13,7 @@ module BooksHelper
     if average
       pluralize(average, 'star')
     else
-      content_tag(:strong, 'No reviews')
+      content_tag(:span, 'No reviews', { class: 'text-muted' })
     end
   end
 end
