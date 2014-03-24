@@ -8,6 +8,9 @@
     </div>
     <div class="col-sm-10">
       <h3><%= link_to(book.title, book) %> <small>by <%= book.author %></small></h3>
+      <p>
+      <%= render partial: 'average_stars', locals: { book: book } %>
+      </p>
     </div>
   </div>
 <% end %>

@@ -32,10 +32,7 @@
     </p>
     <p>
       <label>Average Review:</label>
-      <%= format_average_stars(@book) %>
-      <% if @book.reviews.any? %>
-        <span class="text-muted">(out of <%= pluralize(@book.reviews.size, 'review') %>)</span>
-      <% end %>
+      <%= render partial: 'average_stars', locals: { book: @book } %>
     </p>
   </section>
 

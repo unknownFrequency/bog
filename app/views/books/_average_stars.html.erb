@@ -1,0 +1,4 @@
+<%= format_average_stars(book) %>
+<% if book.reviews.any? %>
+  <span class="text-muted">(out of <%= pluralize(book.reviews.size, 'review') %>)</span>
+<% end %>
