@@ -24,7 +24,7 @@ class Book < ActiveRecord::Base
 
   scope :by, ->(author) { where('author = ?', author) }
 
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
 
   def average_stars
     if reviews.loaded?
