@@ -2,15 +2,15 @@ class BooksController < ApplicationController
   before_action :set_book,
                 only: [:show, :edit, :update, :destroy]
 
-  def index
-    @books = Book.order(:title).page params[:page]
+  before_action :set_specials_flash,
+                only: [:index, :bargains]
 
-    flash[:notice] = "Today's special is 30% off all Sci-Fi books!"
-    # flash[:alert] = "We'll be down for maintenance Sunday. Sorry."
+  def index
+    @books = list_books
   end
 
   def bargains
-    @books = Book.bargains.order(:title).page params[:page]
+    @books = list_books.bargains
   end
 
   def show
@@ -46,6 +46,14 @@ class BooksController < ApplicationController
   end
 
   private
+
+  def set_specials_flash
+    flash[:notice] = "Today's special is 30% off all Sci-Fi books!"
+  end
+
+  def list_books
+    Book.includes(:reviews).order(:title).page params[:page]
+  end
 
   def book_params
     params.require(:book).permit(:title, :abstract, :author, :pages, :price, :image_file_name, :genre, :published_on)

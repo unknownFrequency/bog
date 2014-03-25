@@ -27,7 +27,11 @@ class Book < ActiveRecord::Base
   has_many :reviews
 
   def average_stars
-    reviews.average(:stars)
+    if reviews.loaded?
+      reviews.map(&:stars).average
+    else
+      reviews.average(:stars)
+    end
   end
 
   def recent_reviews(recent_count = 2)
