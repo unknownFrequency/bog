@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  respond_to :html, :xml, :json
   before_action :set_book,
                 only: [:show, :edit, :update, :destroy]
 
@@ -7,13 +8,16 @@ class BooksController < ApplicationController
 
   def index
     @books = list_books
+    respond_with @books
   end
 
   def bargains
     @books = list_books.bargains
+    respond_with @books
   end
 
   def show
+    respond_with @book
   end
 
   def new
@@ -22,22 +26,16 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
-    if @book.save
-      redirect_to @book, notice: "#{@book.title} was created!"
-    else
-      render :new
-    end
+    flash[:notice] = "#{@book.title} was created!" if @book.save
+    respond_with @book
   end
 
   def edit
   end
 
   def update
-    if @book.update(book_params)
-      redirect_to @book, notice: "#{@book.title} was updated!"
-    else
-      render :edit
-    end
+    flash[:notice] = "#{@book.title} was updated!" if @book.update(book_params)
+    respond_with @book
   end
 
   def destroy
