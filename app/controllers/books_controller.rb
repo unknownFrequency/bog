@@ -1,5 +1,7 @@
 class BooksController < ApplicationController
+
   respond_to :html, :xml, :json
+
   before_action :set_book,
                 only: [:show, :edit, :update, :destroy]
 
