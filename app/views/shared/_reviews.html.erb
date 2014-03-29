@@ -1,12 +1,3 @@
 <ol id="reviews">
-  <% reviews.each do |review| %>
-    <li>
-      <span class="stars"><%= pluralize(review.stars, 'star') %></span>
-      <span class="name">by <%= review.name %></span>
-      <span class="date text-muted"><%= time_ago_in_words(review.created_at) %> ago</span>
-      <p>
-        &quot;<%= review.comment %>&quot;
-      </p>
-    </li>
-  <% end %>
+  <%= render partial: 'shared/review', collection: reviews %>
 </ol>

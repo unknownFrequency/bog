@@ -12,10 +12,17 @@ class ReviewsController < ApplicationController
 
   def create
     @review = @book.reviews.new(review_params)
-    if @book.save
-      redirect_to book_reviews_path(@book), notice: 'Thanks for your review!'
+    if @review.save
+      message = 'Thanks for your review!'
+      respond_to do |format|
+        format.html { redirect_to book_reviews_path(@book), notice: message }
+        format.js do
+          flash.now[:notice] = message
+          render status: :created
+        end
+      end
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 

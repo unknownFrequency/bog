@@ -1,6 +1,6 @@
 <header>
   <h3>Reviews for <%= link_to(@book.title, @book) %></h3>
-  <span id="review-count">
+  <span id="review_count">
     (<%= pluralize(@reviews.size, 'review') %>, average <%= format_average_stars(@book) %>)
   </span>
 </header>
@@ -8,6 +8,11 @@
 <%= render partial: 'shared/reviews', locals: { reviews: @reviews } %>
 
 <nav>
-  <%= link_to 'Write a Review', new_book_review_path(@book), class: 'btn btn-primary' %>
+  <%= link_to 'Write a Review', new_book_review_path(@book),
+        remote: true,
+        data: { 'update-target' => 'review_form_container' },
+        class: 'btn btn-primary' %>
   <%= link_to 'Back', @book, class: 'btn btn-link' %>
 </nav>
+
+<div id="review_form_container"></div>
