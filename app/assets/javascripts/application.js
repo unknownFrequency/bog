@@ -35,7 +35,7 @@ jQuery.fn.scrollTo = function() {
 }
 
 
-// Add highligt method to jQuery without plugin
+// Add highlight method to jQuery without plugin
 // From: http://stackoverflow.com/questions/848797/yellow-fade-effect-with-jquery/13106698#13106698
 jQuery.fn.highlight = function(options) {
   opts = options || {};
