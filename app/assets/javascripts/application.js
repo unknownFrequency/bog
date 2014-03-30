@@ -18,20 +18,26 @@
 
 // For elements with a data-update-target attribute, update element HTML with ajax
 // response and scroll to the element.
-// From: http://www.abeautifulsite.net/blog/2010/01/smoothly-scroll-to-an-element-without-a-jquery-plugin/
+
 $(document).on('ajax:success', '[data-update-target]', function(evt, data) {
   var targetId = $(this).data('update-target');
   var target = $('#' + targetId);
   target.html(data).show();
-  $('html, body').animate({
-    scrollTop: target.offset().top
-  }, 1500);
+  target.scrollTo();
 });
+
+// From: http://www.abeautifulsite.net/blog/2010/01/smoothly-scroll-to-an-element-without-a-jquery-plugin/
+jQuery.fn.scrollTo = function() {
+  $('html, body').animate({
+    scrollTop: $(this).offset().top
+  }, 500);
+  return this;
+}
 
 
 // Add highligt method to jQuery without plugin
 // From: http://stackoverflow.com/questions/848797/yellow-fade-effect-with-jquery/13106698#13106698
-jQuery.fn.highlight = function (options) {
+jQuery.fn.highlight = function(options) {
   opts = options || {};
   duration = opts.duration || 1000;
   opacity = opts.opacity || ".7";
