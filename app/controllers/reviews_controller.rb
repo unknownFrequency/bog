@@ -24,21 +24,9 @@ class ReviewsController < ApplicationController
       if @review.save
         flash[:notice] = 'Thanks for your review!' unless request.xhr?
       else
-        format.html { render 'new', status: 422 }
+        format.html { render 'new', status: :unprocessable_entity }
       end
     end
-    # if @review.save
-    #   message = 
-    #   respond_to do |format|
-    #     format.html { redirect_to book_reviews_path(@book), notice: message }
-    #     format.js do
-    #       flash.now[:notice] = message
-    #       render status: :created
-    #     end
-    #   end
-    # else
-    #   render :new, status: :unprocessable_entity
-    # end
   end
 
   private

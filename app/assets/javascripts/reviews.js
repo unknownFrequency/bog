@@ -7,7 +7,8 @@ $(document).on('click', '#cancel_review', function(evt) {
   $('#review_form_container').hide();
 });
 
-// If review validation fails, display the returned form with errors
+// If review was saved, dispay new review and compute new review count and average.
+// NOTE: This will break if pagination is added to reviews.
 $(document).on('ajax:success', '#new_review', function(evt, html, status) {
   $('#reviews').prepend(html);
   $('#reviews li:first').scrollTo().highlight();
