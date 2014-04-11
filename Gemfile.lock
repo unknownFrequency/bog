@@ -126,6 +126,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   kaminari-bootstrap (~> 3.0.1)
+  powerpack (~> 0.0.9)
   rails (= 4.0.0)
   rubocop
   sass-rails (~> 4.0.0)
