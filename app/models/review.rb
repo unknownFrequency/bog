@@ -1,6 +1,6 @@
 class Review < ActiveRecord::Base
 
-  STARS = [1, 2, 3, 4, 5]
+  STARS = 1..5
 
   validates :name, :summary, :comment, presence: true
 
