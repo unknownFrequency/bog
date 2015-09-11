@@ -1,40 +1,38 @@
-<%= form_for(@book, html:{class: 'form-horizontal'}) do |f| %>
+<%= form_for(@book, html:{class: 'form-horizontal', multipart: true}) do |f| %>
   <%= render 'shared/errors', object: @book %>
 
-  <%= bootstrap_form_field(f, :title) do %>
+  <%= bootstrap_form_field(f, "Titel") do %>
     <%= f.text_field :title, autofocus: true, class: "form-control" %>
   <% end %>
 
-  <%= bootstrap_form_field(f, :author) do %>
+  <%= bootstrap_form_field(f, "Forfatter") do %>
     <%= f.text_field :author, class: "form-control" %>
   <% end %>
 
-  <%= bootstrap_form_field(f, :abstract) do %>
+  <%= bootstrap_form_field(f, "Beskrivelse") do %>
     <%= f.text_area :abstract, rows: 5, class: "form-control" %>
   <% end %>
 
-  <%= bootstrap_form_field(f, :pages) do %>
+  <%= bootstrap_form_field(f, "Antal sider") do %>
     <%= f.text_field :pages, class: "form-control" %>
   <% end %>
 
-  <%= bootstrap_form_field(f, :price) do %>
+  <%= bootstrap_form_field(f, "Pris") do %>
     <%= f.text_field :price, class: "form-control" %>
   <% end %>
 
-  <%= bootstrap_form_field(f, :genre) do %>
-    <%= f.select :genre, Book::GENRES, { prompt: "Pick one" }, { class: "form-control" } %>
+  <%= bootstrap_form_field(f, "Genre") do %>
+    <%= f.select :genre, Book::GENRES, { prompt: "Vælg..." }, { class: "form-control" } %>
   <% end %>
 
-  <%= bootstrap_form_field(f, :published_on) do %>
-    <%= f.date_select :published_on,
-                      { start_year: 1800, prompt: true, order: [ :month, :day, :year ] },
-                      { class: "form-control date-select" } %>
-  <% end %>
+  <%#<%= bootstrap_form_field(f, "Udgivet") do %>
+    <%#<%= f.date_select :published_on,%>
+                      <%#{ start_year: 1, prompt: true, order: [ :month, :day, :year ] },%>
+                      <%#{ class: "form-control date-select" } %>
+  <%#<% end %>
 
-  <%= bootstrap_form_field(f, :image_file_name) do %>
-    <%= f.text_field :image_file_name, class: "form-control" %>
-  <% end %>
-
+  <%= f.file_field :book_img, multiple: true, accept: "image/jpeg, image/jpg, image/gif, image/png" %>
+  <br>
   <p>
     <%= f.submit class: 'btn btn-primary' %>
     <%= link_to 'Cancel', @book.id ? book_path(@book) : books_path, class: 'btn btn-link' %>

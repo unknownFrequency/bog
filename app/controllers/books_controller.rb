@@ -55,11 +55,12 @@ class BooksController < ApplicationController
     Book.includes(:reviews).order(:title).page params[:page]
   end
 
-  def book_params
-    params.require(:book).permit(:title, :abstract, :author, :pages, :price, :image_file_name, :genre, :published_on)
-  end
-
   def set_book
     @book = Book.find(params[:id])
+  end
+
+  def book_params
+    params.require(:book).permit(:title, :abstract, :author, :pages, 
+                                 :price, :genre, {book_img: []} )
   end
 end

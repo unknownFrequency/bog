@@ -1,7 +1,9 @@
 class Book < ActiveRecord::Base
-  GENRES = %w(Sci-Fi Fiction Non-Fiction Tragedy Mystery Fantasy Mythology)
+  GENRES = %w(Fiktion Filosofi Religion Natur)
 
-  validates :title, :abstract, :author, :pages, :price, :genre, :published_on, presence: true
+  mount_uploader :book_img, BookImgUploader
+
+  validates :title, :abstract, :author, :pages, :price, :genre, presence: true
 
   validates :abstract, length: { minimum: 15 }, unless: 'abstract.blank?'
 
@@ -12,11 +14,6 @@ class Book < ActiveRecord::Base
   validates :price,
             numericality: { greater_than_or_equal_to: 0 },
             if: '!price.blank?'
-
-  validates :image_file_name, allow_blank: true, format: {
-    with: /\w+.(gif|jpg|png)\z/i,
-    message: 'must reference a GIF, JPG, or PNG image'
-  }
 
   validates :genre, inclusion: { in: GENRES }, unless: 'genre.blank?'
 
