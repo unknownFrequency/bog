@@ -1,7 +1,7 @@
 <li>
   <span class="stars"><%= pluralize(review.stars, 'star') %></span>
-  <span class="name">by <%= review.name %></span>
-  <span class="date text-muted"><%= time_ago_in_words(review.created_at) %> ago</span>
+  <span class="name">af <%= review.name %></span>
+  <span class="date text-muted"><%= time_ago_in_words(review.created_at) %> siden</span>
   <p>
     &quot;<%= review.comment %>&quot;
   </p>

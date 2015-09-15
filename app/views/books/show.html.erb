@@ -56,9 +56,9 @@
     <% if @book.recent_reviews.any? %>
       <%= render partial: 'shared/reviews', locals: { reviews: @book.recent_reviews } %>
       <p>
-        Read all
+
         <span id="read_reviews">
-          <%= link_to pluralize(@book.reviews.size, 'review'), book_reviews_path(@book) %>
+          <%= link_to "Læs alle anmeldelser ( #{@book.reviews.count} )", book_reviews_path(@book) %>
         </span>
       </p>
     <% else %>
