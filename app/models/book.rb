@@ -1,8 +1,6 @@
 class Book < ActiveRecord::Base
   GENRES = %w(Fiktion Filosofi Religion Natur)
 
-  mount_uploader :imgage, ImageUploader
-
   validates :title, :abstract, :author, :pages, :price, :genre, presence: true
 
   validates :abstract, length: { minimum: 15 }, unless: 'abstract.blank?'
@@ -22,6 +20,8 @@ class Book < ActiveRecord::Base
   scope :by, ->(author) { where('author = ?', author) }
 
   has_many :reviews, dependent: :destroy
+  has_many :book_photos
+  accepts_nested_attributes_for :book_photos, allow_destroy: true
 
   def average_stars
     if reviews.loaded?

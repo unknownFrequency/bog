@@ -30,8 +30,10 @@
                       <%#{ start_year: 1, prompt: true, order: [ :month, :day, :year ] },%>
                       <%#{ class: "form-control date-select" } %>
   <%#<% end %>
-
-  <%= f.file_field :book_img, multiple: true, accept: "image/jpeg, image/jpg, image/gif, image/png" %>
+  <% f.fields_for :book_photo do |photo| %>
+    <% render 'book_photo_fields', f:photo %>
+  <% end %>
+  <div class="links"><%= link_to_add_association 'add a photo', f, :book_photos %></div>
   <br>
   <p>
     <%= f.submit class: 'btn btn-primary' %>

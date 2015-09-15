@@ -25,9 +25,10 @@ gem 'jquery-rails'
 # gem 'turbolinks'
 
 gem 'bootstrap-sass', '~> 3.1.1'
-gem 'rubocop'
-gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem 'rubocop', require: false
 gem 'rmagick'
+gem "carrierwave"
+gem "cocoon"
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
