@@ -1,5 +1,7 @@
 Books::Application.routes.draw do
 
+  resources :photos
+
   # get "/books" => "books#index", as: 'books'
   # get "/books/new" => "books#new", as: 'new_book'
   # get "/books/:id" => "books#show", as: 'book'

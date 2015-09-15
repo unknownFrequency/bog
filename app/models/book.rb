@@ -1,7 +1,7 @@
 class Book < ActiveRecord::Base
   GENRES = %w(Fiktion Filosofi Religion Natur)
 
-  mount_uploader :book_img, BookImgUploader
+  mount_uploader :imgage, ImageUploader
 
   validates :title, :abstract, :author, :pages, :price, :genre, presence: true
 
