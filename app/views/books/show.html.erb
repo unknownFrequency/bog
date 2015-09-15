@@ -2,7 +2,9 @@
   <header>
     <h2 class="text-primary"><%= @book.title %></h2>
     <aside class="book-cover">
-      <%= image_tag @book.book_photos.first.photo.url(:thumb) %>
+      <%= link_to image_path(@book.book_photos.first.photo.url) do %>
+        <%= image_tag @book.book_photos.first.photo.url(:thumb), alt: 'Cover' %>
+      <% end %>
     </aside>
   </header>
   <p><%= @book.abstract %></p>
@@ -41,7 +43,9 @@
   <section>
     <% @book.book_photos.each_with_index do |book_photo, index| %>
       <% if not index == 0 %>
-        <%= image_tag book_photo.photo.url(:thumb) %>
+        <%= link_to image_path(book_photo.photo.url) do %>
+          <%= image_tag book_photo.photo.url(:thumb), alt: 'Bog udsnit' %>
+        <% end %>
       <% end %>
     <% end %>
   </section>
