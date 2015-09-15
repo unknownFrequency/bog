@@ -1,8 +1,3 @@
-<% @book.book_photos.each do |book_photo| %>
-  <%= image_tag book_photo.photo.url %>
-<% end %>
-
-
 <article class="book">
   <header>
     <h2 class="text-primary"><%= @book.title %></h2>
@@ -42,6 +37,13 @@
       </span>
     </p>
   </section>
+
+  <section>
+    <% @book.book_photos.each do |book_photo| %>
+      <%= image_tag book_photo.photo.url(:thumb) %>
+    <% end %>
+  </section>
+
 
   <section>
     <header><h4 class="text-primary">Recent Reviews</h4></header>
