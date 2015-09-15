@@ -29,6 +29,7 @@ gem 'rubocop', require: false
 gem 'rmagick'
 gem "carrierwave"
 gem "cocoon"
+gem 'devise'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
