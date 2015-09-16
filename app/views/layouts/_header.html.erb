@@ -1,3 +1,11 @@
 <header class="page-header">
-<h1><%= link_to('Awesome Books', root_path) %></h1>
+  <div style="">
+    <%= image_tag 'logo.jpg', size: "120" %>
+  </div>
+  <h1 style="display: inline; "><%= link_to('Kundskabens Træ', root_path) %></h1>
+  <% if current_user %>
+    <p class="pull-right"><%= current_user.email %></p>
+  <% else %>
+    <p class="pull-right"><%= link_to 'Login', new_user_session_path %></p>
+  <% end %>
 </header>
