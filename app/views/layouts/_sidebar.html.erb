@@ -14,11 +14,13 @@
         <span class="pull-left glyphicon glyphicon-star"></span> Bargains
       <% end %>
     </p>
-    <p>
-      <%= link_to new_book_path, class: 'btn btn-default col-md-12' do %>
-        <span class="pull-left glyphicon glyphicon-plus"></span> Create Book
-      <% end %>
-    </p>
+    <% if user_signed_in? %>
+      <p>
+        <%= link_to new_book_path, class: 'btn btn-default col-md-12' do %>
+          <span class="pull-left glyphicon glyphicon-plus"></span> Create Book
+        <% end %>
+      </p>
+    <% end %>
   </div>
 </div>
 </div>
