@@ -1,8 +1,10 @@
 <header class="page-header">
-  <div style="">
-    <%= image_tag 'logo.jpg', size: "120" %>
+  <div class="pull-left img-responsive logo">
+    <%= image_tag 'logo_w.jpg', size: "120" %>
   </div>
-  <h1 style="display: inline; "><%= link_to('Kundskabens Træ', root_path) %></h1>
+  <h1 class="headline">
+    <%= link_to('Kundskabens Træ', root_path) %>
+  </h1>
   <% if user_signed_in? %>
     <li id="fat-menu" class="dropdown pull-right">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -15,6 +17,7 @@
       </ul>
     </li>
   <% else %>
-    <p class="pull-right"><%= link_to 'Login', new_user_session_path %></p>
+    <%= link_to "Sign up nu!", new_user_registration_path, class: "btn btn-default pull-right" %>
   <% end %>
+  <i class="icon-large icon-tint pull-right"></i>
 </header>

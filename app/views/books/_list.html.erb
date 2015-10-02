@@ -7,9 +7,12 @@
       <% end %>
     </div>
     <div class="col-sm-10">
-      <h3><%= link_to(book.title, book) %> <small>by <%= book.author %></small></h3>
+      <h3 class="book_info">
+        <%= link_to(truncate(book.title, length: 20), book) %> <br />
+        <small>af: <%=  book.author.titleize %></small>
+      </h3>
       <p>
-      <%= render partial: 'average_stars', locals: { book: book } %>
+        <%= render partial: 'average_stars', locals: { book: book } %>
       </p>
     </div>
   </div>

@@ -21,5 +21,6 @@ module Books
     # config.i18n.default_locale = :de
 
     I18n.enforce_available_locales = false
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
   end
 end

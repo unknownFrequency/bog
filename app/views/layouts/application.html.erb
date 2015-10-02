@@ -9,16 +9,14 @@
 <body>
   <div class="container">
     <%= render '/layouts/header' %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
   </div>
   <div class="container">
+    <div class="col-xs-3">
+      <%= render '/layouts/sidebar' %>
+    </div>
     <div class="col-xs-9">
       <%= render '/layouts/flashes' %>
       <%= yield %>
-    </div>
-    <div class="col-xs-3">
-      <%= render '/layouts/sidebar' %>
     </div>
   </div>
   <%= render '/layouts/footer' %>
