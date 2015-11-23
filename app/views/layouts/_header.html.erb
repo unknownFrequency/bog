@@ -1,11 +1,10 @@
 <header class="page-header">
   <div class="logo_headline_container">
-    <div class="pull-left img-responsive logo">
-      <span class="logo"><%= image_tag 'logo_w.jpg', size: "180" %></span>
-    </div>
     <h1 class="headline">
-      <%= link_to('Kundskabens Træ', root_path) %>
     </h1>
+    <div class="img-responsive logo">
+      <span class="logo"><%= image_tag 'logo_r.jpg', size: "180" %></span>
+    </div>
   </div>
   <% if user_signed_in? %>
     <li id="fat-menu" class="dropdown pull-right">

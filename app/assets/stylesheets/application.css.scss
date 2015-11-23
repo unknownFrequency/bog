@@ -19,16 +19,8 @@
 body {
   border-top: 8px solid #5ce638;
   background-color: #FED5A7;
-  min-height: 2000px;
+  //min-height: 2000px;
 }
-.navbar {
-  background-color: #003399;
-}
-
-.navbar-static-top {
-  margin-bottom: 19px;
-}
-
 
 .logo_headline_container {
   float:left;
@@ -40,6 +32,7 @@ body {
 .logo {
   width: 120%;
   height: 120%;
+  margin: -88px 0 0 -230px;
 }
 
 .headline {
@@ -51,6 +44,7 @@ body {
 .book_info {
   float:left;
   margin: -6px 0 0 45px;
+  font-size: 18px;
 }
 
 .avg_stars {
@@ -80,65 +74,13 @@ select.form-control {
   margin-top: 20px;
 }
 
-#sidebar {
-  margin-top: 60px;
-  width: 200px;
+// Navigation
 
-  &.affix {
-    position: fixed;
-    top: 20px;
-  }
-
-  a.btn {
-    color:white;
-    margin-top: 5px;
-    margin-bottom: 5px;
-  }
-
-  .btn-default {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    background-image: linear-gradient(to bottom, #FFF 0%, #15DC51 100%) !important;
-  }
+//Title
+.navbar-brand {
+  color:red;
 }
 
-/* make sidebar nav vertical */
-@media (min-width: 768px){
-  .affix-content .container {
-    width: 700px;
-  }
-
-  html,body{
-    background-color: #f8f8f8;
-    //overflow: hidden;
-  }
-  /*
-    .affix-content .container .page-header{
-      margin-top: 0;
-    }
-    .sidebar-nav{
-      position:fixed;
-      width:100%;
-    }
-    .affix-sidebar{
-      padding-right:0;
-      font-size:small;
-      padding-left: 0;
-    }
-    .affix-row, .affix-container, .affix-content{
-      height: 100%;
-      margin-left: 0;
-      margin-right: 0;
-    }
-    .affix-content{
-      background-color:white;
-    }
-    .sidebar-nav .navbar .navbar-collapse {
-      padding: 0;
-      max-height: none;
-    }
-  */
-}
 
 @media (min-width: 769px){
   .affix-content .container {
@@ -163,29 +105,18 @@ select.form-control {
   min-height: 100%;
   height: auto !important;
   height: 100%;
-  /* Negative indent footer by it's height */
+  /* Negative indent footer by its height */
   margin: 0 auto -60px;
+  /* Pad bottom by footer height */
+  padding: 0 0 60px;
 }
 
 /* Set the fixed height of the footer here */
-#push,
 #footer {
-  padding-top:10px;
-  padding-top:10px;
-  height: 30px;
-  margin: 60px 0 0 0;
-}
-#footer {
+  height: 60px;
   background-color: #f5f5f5;
-}
-
-/* Lastly, apply responsive CSS fixes as necessary */
-@media (max-width: 767px) {
-  #footer {
-    margin-left: -20px;
-    margin-right: -20px;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
+  margin-top:50px;
+  padding-top:20px;
+  padding-bottom:20px;
 }
 
