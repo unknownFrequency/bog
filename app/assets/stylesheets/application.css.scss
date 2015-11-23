@@ -18,30 +18,46 @@
 
 body {
   border-top: 8px solid #5ce638;
-  margin-bottom: 60px;
   background-color: #FED5A7;
+  min-height: 2000px;
+}
+.navbar {
+  background-color: #003399;
+}
+
+.navbar-static-top {
+  margin-bottom: 19px;
+}
+
+
+.logo_headline_container {
+  float:left;
+  text-align:center;
+  display:inline-block;
+  margin-left:25%;
 }
 
 .logo {
-  margin-left: 55px;
+  width: 120%;
+  height: 120%;
 }
 
 .headline {
+  text-align:center;
   font-size:42px;
-  float:left;
   margin-left: 110px;
 }
 
 .book_info {
+  float:left;
   margin: -6px 0 0 45px;
 }
 
-.reviews {
-  float:left;
-  color:green;
-  position:absolute;
-  margin-left: -50px;
-  margin-top: 30px;
+.avg_stars {
+  display:inline;
+  position: absolute;
+  top: 100px;
+  left: -50px;
 }
 
 .page-header {
@@ -94,50 +110,34 @@ select.form-control {
 
   html,body{
     background-color: #f8f8f8;
-    height: 100%;
-    overflow: hidden;
+    //overflow: hidden;
   }
-  .affix-content .container .page-header{
-    margin-top: 0;
-  }
-  .sidebar-nav{
-    position:fixed;
-    width:100%;
-  }
-  .affix-sidebar{
-    padding-right:0;
-    font-size:small;
-    padding-left: 0;
-  }
-  .affix-row, .affix-container, .affix-content{
-    height: 100%;
-    margin-left: 0;
-    margin-right: 0;
-  }
-  .affix-content{
-    background-color:white;
-  }
-  .sidebar-nav .navbar .navbar-collapse {
-    padding: 0;
-    max-height: none;
-  }
-  .sidebar-nav .navbar{
-    border-radius:0;
-    margin-bottom:0;
-    border:0;
-  }
-  .sidebar-nav .navbar ul {
-    float: none;
-    display: block;
-  }
-  .sidebar-nav .navbar li {
-    float: none;
-    display: block;
-  }
-  .sidebar-nav .navbar li a {
-    padding-top: 12px;
-    padding-bottom: 12px;
-  }
+  /*
+    .affix-content .container .page-header{
+      margin-top: 0;
+    }
+    .sidebar-nav{
+      position:fixed;
+      width:100%;
+    }
+    .affix-sidebar{
+      padding-right:0;
+      font-size:small;
+      padding-left: 0;
+    }
+    .affix-row, .affix-container, .affix-content{
+      height: 100%;
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .affix-content{
+      background-color:white;
+    }
+    .sidebar-nav .navbar .navbar-collapse {
+      padding: 0;
+      max-height: none;
+    }
+  */
 }
 
 @media (min-width: 769px){
@@ -157,3 +157,35 @@ select.form-control {
     margin-top: 0;
   }
 }
+
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /* Negative indent footer by it's height */
+  margin: 0 auto -60px;
+}
+
+/* Set the fixed height of the footer here */
+#push,
+#footer {
+  padding-top:10px;
+  padding-top:10px;
+  height: 30px;
+  margin: 60px 0 0 0;
+}
+#footer {
+  background-color: #f5f5f5;
+}
+
+/* Lastly, apply responsive CSS fixes as necessary */
+@media (max-width: 767px) {
+  #footer {
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+

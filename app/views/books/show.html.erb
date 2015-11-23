@@ -1,11 +1,13 @@
 <article class="book">
   <header>
     <h2 class="text-primary"><%= @book.title %></h2>
-    <aside class="book-cover">
-      <%= link_to image_path(@book.book_photos.first.photo.url) do %>
-        <%= image_tag @book.book_photos.first.photo.url(:thumb), alt: 'Cover' %>
-      <% end %>
-    </aside>
+    <% if @book.book_photos.first.present? %>
+      <aside class="book-cover">
+        <%= link_to image_path(@book.book_photos.first.photo.url) do %>
+          <%= image_tag @book.book_photos.first.photo.url(:thumb), alt: 'Cover' %>
+        <% end %>
+      </aside>
+    <% end %>
   </header>
   <p><%= @book.abstract %></p>
 

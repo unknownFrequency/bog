@@ -1,4 +1,4 @@
 <%= format_average_stars(book) %>
 <% if book.reviews.any? %>
-  <span class="reviews">(out of <%= pluralize(book.reviews.count, 'review') %>)</span>
+    (out of <%= pluralize(book.reviews.count, 'review') %>)
 <% end %>
