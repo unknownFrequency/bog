@@ -2,23 +2,5 @@
   <div class="logo_headline_container">
     <h1 class="headline">
     </h1>
-    <div class="img-responsive logo">
-      <span class="logo"><%= image_tag 'logo_r.jpg', size: "180" %></span>
-    </div>
   </div>
-  <% if user_signed_in? %>
-    <li id="fat-menu" class="dropdown pull-right">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-        Account <b class="caret"></b>
-      </a>
-      <ul class="dropdown-menu">
-        <li><%= link_to "Profil", edit_user_registration_path %></li>
-        <li> <%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
-        <li class="divider"></li>
-      </ul>
-    </li>
-  <% else %>
-    <%= link_to "Sign up nu!", new_user_registration_path, class: "btn btn-default pull-right" %>
-  <% end %>
-  <i class="icon-large icon-tint pull-right"></i>
 </header>

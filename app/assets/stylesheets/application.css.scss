@@ -17,34 +17,66 @@
 
 
 body {
-  border-top: 8px solid #5ce638;
+  border-top: 8px solid #00ff98;
   background-color: #FED5A7;
   //min-height: 2000px;
 }
 
-.logo_headline_container {
-  float:left;
-  text-align:center;
-  display:inline-block;
-  margin-left:25%;
+//
+// HEADER //
+//
+
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
 }
+
+.navbar .navbar-collapse {
+  text-align: center;
+}
+
+.navbar-brand {
+  margin: 0 0 0 150px;
+}
+//
+//.navbar-brand {
+//  float:none;
+//}
 
 .logo {
-  width: 120%;
-  height: 120%;
-  margin: -88px 0 0 -230px;
+  //margin: -16px 0 0 -12%;
+  position: absolute;
+  top: -16px;
+  left:13px;
 }
 
-.headline {
-  text-align:center;
-  font-size:42px;
-  margin-left: 110px;
+#fat-menu {
+  margin-right: -23%;
+}
+
+//
+// FLASH MSG
+//
+.flash {
+  width: 70%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+//
+// Books //
+//
+
+.books_headline {
+  padding-bottom: 20px;
 }
 
 .book_info {
   float:left;
   margin: -6px 0 0 45px;
   font-size: 18px;
+  border-color: #00ff98;
 }
 
 .avg_stars {
@@ -73,14 +105,6 @@ select.form-control {
 .page-entries-info {
   margin-top: 20px;
 }
-
-// Navigation
-
-//Title
-.navbar-brand {
-  color:red;
-}
-
 
 @media (min-width: 769px){
   .affix-content .container {
@@ -119,4 +143,3 @@ select.form-control {
   padding-top:20px;
   padding-bottom:20px;
 }
-

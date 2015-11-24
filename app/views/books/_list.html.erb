@@ -10,10 +10,10 @@
 
     </div>
     <div class="col-sm-10">
-      <h3 class="book_info">
+      <div class="book_info .top-to-bottom">
         <%= link_to(truncate(book.title, length: 35), book) %> <br />
         <small>af: <%=  book.author.titleize %></small>
-      </h3>
+      </div>
       <div class="avg_stars">
         <%= render partial: 'average_stars', locals: { book: book } %>
       </div>

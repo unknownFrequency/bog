@@ -48,7 +48,7 @@ class BooksController < ApplicationController
   private
 
   def set_specials_flash
-    flash[:notice] = "Today's special is 30% off all Sci-Fi books!"
+    flash[:notice] = "Vil du have en bog bundet ind?"
   end
 
   def list_books
