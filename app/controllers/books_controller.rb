@@ -28,7 +28,7 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
-    flash[:notice] = "#{@book.title} was created!" if @book.save
+    flash[:notice] = "#{@book.title} blev tilføjet!" if @book.save
     respond_with @book
   end
 
@@ -36,19 +36,19 @@ class BooksController < ApplicationController
   end
 
   def update
-    flash[:notice] = "#{@book.title} was updated!" if @book.update(book_params)
+    flash[:notice] = "#{@book.title} blev opdateret!" if @book.update(book_params)
     respond_with @book
   end
 
   def destroy
     @book.destroy
-    redirect_to books_url, alert: "#{@book.title} was deleted!"
+    redirect_to books_url, alert: "#{@book.title} blev slettet!"
   end
 
   private
 
   def set_specials_flash
-    flash[:notice] = "Vil du have en bog bundet ind?"
+    flash[:notice] = "!Tilføj felt Paperback/Hardcover! Hos Kundskabens Træ finder du bøger til de søgende og dem som elsker viden. "
   end
 
   def list_books

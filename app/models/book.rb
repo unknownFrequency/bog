@@ -23,6 +23,8 @@ class Book < ActiveRecord::Base
   has_many :book_photos
   accepts_nested_attributes_for :book_photos, allow_destroy: true
 
+  paginates_per 50
+
   def average_stars
     if reviews.loaded?
       reviews.map(&:stars).average

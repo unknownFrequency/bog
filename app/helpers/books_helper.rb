@@ -11,7 +11,7 @@ module BooksHelper
   def format_average_stars(book)
     average = number_with_precision(book.average_stars, precision: 1)
     if average
-      pluralize(average, 'star')
+      average + ' stjerner'
     else
       content_tag(:span, 'Ingen anmeldelser', { class: 'reviews' })
     end

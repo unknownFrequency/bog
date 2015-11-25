@@ -21,3 +21,20 @@
 
 en:
   hello: "Hello world"
+  views:
+    pagination:
+      first: "&laquo; Først"
+      last: "Sidste &raquo;"
+      previous: "&lsaquo; Sidste"
+      next: "Næste &rsaquo;"
+      truncate: "&hellip;"
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "Ingen %{entry_name} fundet"
+          one: "Viser <b>1</b> %{entry_name}"
+          other: "Viser <b>alle [ %{count} ]</b>"
+      more_pages:
+        display_entries: "Viser %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> af <b>%{total}</b> i alt"
+

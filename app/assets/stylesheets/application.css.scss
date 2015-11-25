@@ -26,10 +26,12 @@ body {
 // HEADER //
 //
 
+// navigation bottons
 .navbar .navbar-nav {
   display: inline-block;
   float: none;
   vertical-align: top;
+  margin-bottom: 50px;
 }
 
 .navbar .navbar-collapse {
@@ -37,7 +39,8 @@ body {
 }
 
 .navbar-brand {
-  margin: 0 0 0 150px;
+  //margin: 0 0 0 150px;
+  padding-left: 90px;
 }
 //
 //.navbar-brand {
@@ -51,8 +54,13 @@ body {
   left:13px;
 }
 
+.cart {
+  padding: 0;
+  margin-top: -7px;
+}
+
 #fat-menu {
-  margin-right: -23%;
+  //margin-right: -25%;
 }
 
 //
@@ -68,15 +76,27 @@ body {
 // Books //
 //
 
+.books {
+  width: 100%;
+}
+
+#books .well {
+  background-color: #fff;
+}
+
+#books .forfatter {
+  font-size: 9px;
+}
+
 .books_headline {
   padding-bottom: 20px;
 }
 
 .book_info {
   float:left;
-  margin: -6px 0 0 45px;
-  font-size: 18px;
-  border-color: #00ff98;
+  //margin: -6px 0 0 45px;
+  //border-color: #00ff98;
+  font-size: 13px;
 }
 
 .avg_stars {
@@ -86,8 +106,20 @@ body {
   left: -50px;
 }
 
+.sign_up {
+  position: absolute;
+  top: 80px;
+  left: 90%;
+  list-style-type:none;
+}
+
 .page-header {
   border-bottom: 0px solid;
+}
+
+
+.page_entires_container {
+  clear: both;
 }
 
 .inline-button-form {

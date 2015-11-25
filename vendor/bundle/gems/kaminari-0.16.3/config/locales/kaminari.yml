@@ -3,17 +3,17 @@
 en:
   views:
     pagination:
-      first: "&laquo; First"
-      last: "Last &raquo;"
-      previous: "&lsaquo; Prev"
-      next: "Next &rsaquo;"
+      first: "&laquo; Først"
+      last: "Sidste &raquo;"
+      previous: "&lsaquo; Sidste"
+      next: "Næste &rsaquo;"
       truncate: "&hellip;"
   helpers:
     page_entries_info:
       one_page:
         display_entries:
-          zero: "No %{entry_name} found"
-          one: "Displaying <b>1</b> %{entry_name}"
-          other: "Displaying <b>all %{count}</b> %{entry_name}"
+          zero: "Ingen %{entry_name} fundet"
+          one: "Viser <b>1</b> %{entry_name}"
+          other: "Viser <b>alle %{count}</b> %{entry_name}"
       more_pages:
-        display_entries: "Displaying %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> of <b>%{total}</b> in total"
+        display_entries: "Viser %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> af <b>%{total}</b> i alt"
