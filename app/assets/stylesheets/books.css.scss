@@ -26,3 +26,26 @@ nav#book-show-buttons {
 .pris {
   color: #008200;
 }
+
+.search_container {
+  height: 150px;
+  border-top: 3px solid #FAFAFA;
+  border-bottom: 3px solid #FAFAFA;
+  padding: 10px 0 10px 0;
+}
+
+.search_field {
+  float:left;
+}
+
+.search_icon {
+  margin: 0 4px 10px 0;
+  //float:left;
+  text-align: center;
+}
+
+.search_btn {
+  margin:7px 0 0 0px;
+  float:left;
+  clear:both;
+}

@@ -1,5 +1,9 @@
 <header>
-  <h3 class="books_headline text-center">Udvalgte bøger</h3>
+  <% if params['search'].present? %>
+    <h3 class="books_headline text-center"><%= capitalize_first(params['search']) %></h3>
+  <% else %>
+    <h3 class="books_headline text-center">Udvalgte bøger</h3>
+  <% end %>
 </header>
 
 <%= render partial: 'list', locals: { books: @books } %>

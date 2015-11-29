@@ -23,17 +23,14 @@
 
       <p>
         <label>Af:</label>
-        <%= link_to( @book.author, controller: "books", action: "author_search", author: @book.author) do %>
-          <span style="color:darkred"><%= @book.author %></span>
-        <% end %>
-
+        <%= link_to @book.author, books_path(:search => @book.author) %>
       </p>
       <p class="show_book_description pris">
         <%= number_to_currency(@book.price, unit: "DKK", format: "%n %u") %>
       </p>
       &nbsp; | &nbsp;
       <p class="show_book_description">
-        <%= @book.genre %>
+        <%= link_to @book.genre, books_path(:search => @book.genre) %>
       </p>
       &nbsp; | &nbsp;
       <p class="show_book_description">

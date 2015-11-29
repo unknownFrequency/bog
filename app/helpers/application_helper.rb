@@ -7,6 +7,10 @@ module ApplicationHelper
     end
   end
 
+  def capitalize_first(string)
+    string.slice(0,1).capitalize + string.slice(1..-1)
+  end
+
   def bootstrap_form_field(f, field, &block)
     div_style = ['form-group']
     has_any_errors = f.object.errors.present?

@@ -1,13 +1,16 @@
 <div class="col-sm-2">
   <%= form_tag(books_path, :method => "get", id: "search-form") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Søg bøger" %>
-    <%= submit_tag "Søg" %>
+    <div class="search_container">
+      <div class="search_icon"><%= image_tag("search.png", size: "50", :alt => "search_icon", :title => "Søg") %></div>
+      <div class="search_field"><%= text_field_tag :search, params[:search], placeholder: "Titel, forfatter" %></div>
+      <div class="search_btn"><%= submit_tag "Søg" %></div>
+    </div>
   <% end %>
 
   <% if @books.present? %>
     <%= render 'search_books' %>
   <% else %>
-    <p>There are no posts containing the term(s) <%= params[:search] %>.</p>
+    <% flash[:notice] = "Der var desværre ingen resultater for #{params[:search]}" %>
   <% end %>
 </div>
 
@@ -34,7 +37,8 @@
   </div>
 </div>
 
-<div class="col-sm-2"></div>
+<div class="col-sm-2">
+</div>
 
 <div class="page_entires_container">
   <div class="pull-left page-entries-info">
