@@ -6,13 +6,16 @@
     <div class="row well">
       <% if book.book_photos.first.present? %>
         <%= link_to(book) do %>
-          <%= image_tag(book.book_photos.first.photo.url(:thumb), alt: 'Billede mangler') %>
+          <div class="book_cover"><%= image_tag(book.book_photos.first.photo.url(:thumb), alt: 'Billede mangler') %></div>
         <% end %>
+      <% else %>
+        <%= image_tag('default.png', alt: 'Billede mangler') %>
       <% end %>
 
       <div class="book_info">
         <%= link_to(truncate(book.title, length: 20), book) %> <br />
-        <span class="forfatter">af: <%=  book.author.titleize %></span>
+        <p class="forfatter">af: <%=  book.author.titleize %></p>
+        <p class="cover"><%= book.cover %></p>
       </div>
 
     </div>

@@ -21,6 +21,10 @@
     <%= f.text_field :price, class: "form-control" %>
   <% end %>
 
+  <%= bootstrap_form_field(f, "Cover") do %>
+    <%= f.select :cover, ['Paperback', 'Hardcover', 'Læderindbundet'], { prompt: "Vælg..." }, { class: "form-control" } %>
+  <% end %>
+
   <%= bootstrap_form_field(f, "Genre") do %>
     <%= f.select :genre, Book::GENRES, { prompt: "Vælg..." }, { class: "form-control" } %>
   <% end %>
