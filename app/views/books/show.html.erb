@@ -1,94 +1,104 @@
-<br />
-<article class="book">
-  <header>
-    <h2 class="text-primary"><%= @book.title %></h2>
-    <% if @book.book_photos.first.present? %>
-      <aside class="book-cover">
-        <%= link_to image_path(@book.book_photos.first.photo.url) do %>
-          <%= image_tag @book.book_photos.first.photo.url(:thumb), alt: 'Cover' %>
-        <% end %>
-      </aside>
-    <% end %>
-  </header>
-  <p><%= @book.abstract %></p>
-
-  <section>
-    <header><h4 class="text-primary">Details</h4></header>
-
-    <p>
-      <label>Author:</label>
-      <%= @book.author %>
-    </p>
-    <p>
-      <label>Genre:</label>
-      <%= @book.genre %>
-    </p>
-    <p>
-      <label>Pages:</label>
-      <%= number_with_delimiter(@book.pages) %>
-    </p>
-    <p>
-      <label>Price:</label>
-      <%= number_to_currency(@book.price) %>
-    </p>
-    <p>
-      <label>Cover:</label>
-      <%= @book.cover %>
-    </p>
-    <p>
-      <label>Average Review:</label>
-      <span id="average_review">
-      <%= render partial: 'average_stars', locals: { book: @book } %>
-      </span>
-    </p>
-  </section>
-
-  <section>
-    <% @book.book_photos.each_with_index do |book_photo, index| %>
-      <% if not index == 0 %>
-        <%= link_to image_path(book_photo.photo.url) do %>
-          <%= image_tag book_photo.photo.url(:thumb), alt: 'Bog udsnit' %>
-        <% end %>
+<div class="col-sm-2">
+  <% if @book.book_photos.first.present? %>
+    <aside class="book-cover">
+      <%= link_to image_path(@book.book_photos.first.photo.url) do %>
+        <div class="book_normal_cover">
+          <%= image_tag @book.book_photos.first.photo.url(:normal), alt: 'Cover' %>
+        </div>
       <% end %>
-    <% end %>
-  </section>
+    </aside>
+  <% end %>
+</div>
 
+<div class="col-sm-8">
+  <article class="book">
+    <header>
+      <h2 class="text-primary"><%= @book.title %></h2>
+    </header>
+    <p><%= @book.abstract %></p>
 
-  <section>
-    <header><h4 class="text-primary">Recent Reviews</h4></header>
-    <% if @book.recent_reviews.any? %>
-      <%= render partial: 'shared/reviews', locals: { reviews: @book.recent_reviews } %>
+    <section>
+      <br /><br />
+      <header><h4 class="text-primary">Detaljer</h4></header>
+
       <p>
+        <label>Af:</label>
+        <%= link_to( @book.author, controller: "books", action: "author_search", author: @book.author) do %>
+          <span style="color:darkred"><%= @book.author %></span>
+        <% end %>
 
-        <span id="read_reviews">
-          <%= link_to "Læs alle anmeldelser ( #{@book.reviews.count} )", book_reviews_path(@book) %>
+      </p>
+      <p class="show_book_description pris">
+        <%= number_to_currency(@book.price, unit: "DKK", format: "%n %u") %>
+      </p>
+      &nbsp; | &nbsp;
+      <p class="show_book_description">
+        <%= @book.genre %>
+      </p>
+      &nbsp; | &nbsp;
+      <p class="show_book_description">
+        <%= number_with_delimiter(@book.pages) %> sider
+      </p>
+      &nbsp; | &nbsp;
+      <p class="show_book_description">
+        <%= @book.cover %>
+      </p>
+      <br /><br /><br />
+      <p>
+        <label>Average Review:</label>
+        <span id="average_review">
+        <%= render partial: 'average_stars', locals: { book: @book } %>
         </span>
       </p>
-    <% else %>
-      <p>
-        Be the first to write a review!
-      </p>
-      <ol id="reviews"></ol>
-    <% end %>
-  </section>
+    </section>
 
-  <nav>
-    <%= link_to 'Write a Review', new_book_review_path(@book),
-          remote: true,
-          data: { 'update-target' => 'review_form_container' },
-          class: 'btn btn-primary' %>
-  </nav>
+    <section>
+      <% @book.book_photos.each_with_index do |book_photo, index| %>
+        <% if not index == 0 %>
+          <%= link_to image_path(book_photo.photo.url) do %>
+            <%= image_tag book_photo.photo.url(:thumb), alt: 'Bog udsnit' %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </section>
 
-  <div id="review_form_container"></div>
+    <section>
+      <header><h4 class="text-primary">Recent Reviews</h4></header>
+      <% if @book.recent_reviews.any? %>
+        <%= render partial: 'shared/reviews', locals: { reviews: @book.recent_reviews } %>
+        <p>
 
-  <nav id="book-show-buttons">
-    <%= link_to 'Edit', edit_book_path(@book), class: 'btn btn-default' %>
-    <span class='inline-button-form'>
-      <%= button_to "Delete #{@book.title}", @movie,
-                   method: :delete,
-                   data: { confirm: 'Are you sure?' },
-                   class: 'btn btn-danger' %>
-    </span>
-  </nav>
+          <span id="read_reviews">
+            <%= link_to "Læs alle anmeldelser ( #{@book.reviews.count} )", book_reviews_path(@book) %>
+          </span>
+        </p>
+      <% else %>
+        <p>
+          Be the first to write a review!
+        </p>
+        <ol id="reviews"></ol>
+      <% end %>
+    </section>
 
-</article>
+    <nav>
+      <%= link_to 'Write a Review', new_book_review_path(@book),
+            remote: true,
+            data: { 'update-target' => 'review_form_container' },
+            class: 'btn btn-primary' %>
+    </nav>
+
+    <div id="review_form_container"></div>
+
+    <nav id="book-show-buttons">
+      <%= link_to 'Edit', edit_book_path(@book), class: 'btn btn-default' %>
+      <span class='inline-button-form'>
+        <%= button_to "Delete #{@book.title}", @movie,
+                     method: :delete,
+                     data: { confirm: 'Are you sure?' },
+                     class: 'btn btn-danger' %>
+      </span>
+    </nav>
+  </article>
+</div>
+
+<div class="col-sm-2"></div>

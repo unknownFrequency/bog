@@ -10,6 +10,10 @@ class BooksController < ApplicationController
 
   def index
     @books = list_books
+    if params[:search]
+      @books = Book.search(params[:search]).order("created_at DESC")
+    end
+
     respond_with @books
   end
 
@@ -57,6 +61,10 @@ class BooksController < ApplicationController
 
   def set_book
     @book = Book.find(params[:id])
+  end
+
+  def author_search
+    @author_books = Book.where(author: params[:author]).order(created_at: :desc)
   end
 
   def book_params

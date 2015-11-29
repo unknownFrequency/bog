@@ -15,6 +15,9 @@ class Book < ActiveRecord::Base
 
   validates :genre, inclusion: { in: GENRES }, unless: 'genre.blank?'
 
+  validates :cover, presence: true
+  validates_inclusion_of :cover, :in => %w( Paperback Hardcover Læderindbundet )
+
   scope :bargains, -> { where('price < 10.00') }
 
   scope :by, ->(author) { where('author = ?', author) }
@@ -35,5 +38,9 @@ class Book < ActiveRecord::Base
 
   def recent_reviews(recent_count = 2)
     reviews.order('created_at desc').limit(recent_count)
+  end
+
+  def self.search(search)
+    where("author LIKE ? OR title LIKE ? OR genre LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
   end
 end
