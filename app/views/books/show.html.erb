@@ -15,16 +15,15 @@
     <header>
       <h2 class="text-primary"><%= @book.title %></h2>
     </header>
+    <p>
+      <label>Af:</label>
+      <%= link_to @book.author, books_path(:search => @book.author) %>
+    </p>
     <p><%= @book.abstract %></p>
-
     <section>
       <br /><br />
       <header><h4 class="text-primary">Detaljer</h4></header>
 
-      <p>
-        <label>Af:</label>
-        <%= link_to @book.author, books_path(:search => @book.author) %>
-      </p>
       <p class="show_book_description pris">
         <%= number_to_currency(@book.price, unit: "DKK", format: "%n %u") %>
       </p>
@@ -87,7 +86,7 @@
     <div id="review_form_container"></div>
 
     <div class="write_to_seller">
-      </div>
+    </div>
 
 
     <nav id="book-show-buttons">

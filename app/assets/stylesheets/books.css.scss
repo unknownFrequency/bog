@@ -2,6 +2,23 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+// GENRE NAVIGATION //
+ul.navigation_list {
+  float:none;
+  list-style-type:none;
+  margin: 50px 0 0 0;
+}
+
+p.navigation_list_hl {
+  font-size: 20px;
+  margin: 0 0 10px -20px;
+}
+
+.navigation_list li {
+  margin: 0 0 5px 0;
+}
+
 article.book {
   header {
     aside.book-cover {
@@ -29,6 +46,7 @@ nav#book-show-buttons {
 
 .search_container {
   height: 150px;
+  width: 150px;
   border-top: 3px solid #FAFAFA;
   border-bottom: 3px solid #FAFAFA;
   padding: 10px 0 10px 0;

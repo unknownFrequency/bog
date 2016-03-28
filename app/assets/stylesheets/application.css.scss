@@ -26,22 +26,26 @@ body {
 //
 
 // navigation bottons
-.navbar .navbar-nav {
-  display: inline-block;
-  float: none;
-  vertical-align: top;
-  margin-bottom: 30px;
+div.navigation {
+  margin: 0 0 0 -22px;
 }
 
-.navbar .navbar-collapse {
-  //text-align: center;
+ul.navigation_list {
+  float:none;
+  list-style-type:none;
+  margin: 50px 0 0 0;
+}
+li.navigation_list_hl {
+  font-size: 20px;
+  margin: 0 0 10px -20px;
 }
 
 .navbar-brand {
-  //margin: 0 0 0 150px;
-  padding-left: 70px;
-  padding-right: 90px;
-  position: relative;
+  font-family: monospace,"Lucida Console", Monaco;
+//  font-family: "Courier New", Courier, monospace;
+  font-size: 26px;
+  margin: 15px auto 0 auto;
+
 }
 
 .logo {
@@ -50,17 +54,6 @@ body {
   top: -16px;
   left:13px;
 }
-
-.bogindbindning {
-  color: #AFD9EE;
-}
-
-.cart {
-  //padding: 0;
-  margin-top: -7px;
-  //float:left;
-}
-
 
 #fat-menu {
   //margin-right: -25%;
@@ -157,24 +150,3 @@ select.form-control {
   margin-top: 20px;
 }
 
-
-
-/* Wrapper for page content to push down footer */
-#wrap {
-  min-height: 100%;
-  height: auto !important;
-  height: 100%;
-  /* Negative indent footer by its height */
-  margin: 0 auto -60px;
-  /* Pad bottom by footer height */
-  padding: 0 0 60px;
-}
-
-/* Set the fixed height of the footer here */
-#footer {
-  height: 60px;
-  background-color: #f5f5f5;
-  margin-top:50px;
-  padding-top:20px;
-  padding-bottom:20px;
-}

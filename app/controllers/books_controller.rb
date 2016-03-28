@@ -36,7 +36,7 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
-    @user_id = current_user.id
+    @book['user_id'] = current_user.id
     flash[:notice] = "#{@book.title} blev tilføjet med bruger_id #{@book.user_id}!" if @book.save
     respond_with @book
   end
