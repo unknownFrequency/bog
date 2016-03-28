@@ -27,12 +27,17 @@ class BooksController < ApplicationController
   end
 
   def new
-    @book = Book.new
+    if user_signed_in?
+      @book = Book.new
+    else
+      redirect_to new_user_registration_path
+    end
   end
 
   def create
     @book = Book.new(book_params)
-    flash[:notice] = "#{@book.title} blev tilføjet!" if @book.save
+    @user_id = current_user.id
+    flash[:notice] = "#{@book.title} blev tilføjet med bruger_id #{@book.user_id}!" if @book.save
     respond_with @book
   end
 
@@ -68,7 +73,7 @@ class BooksController < ApplicationController
   end
 
   def book_params
-    params.require(:book).permit(:title, :abstract, :author, :pages, 
+    params.require(:book).permit(:user_id, :title, :abstract, :author, :pages, 
                                  :price, :genre, :cover, book_photos_attributes: [:id, :photo, :_destroy] )
   end
 end

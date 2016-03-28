@@ -1,5 +1,9 @@
-<div class="row">
-  <h2>Create a New Book</h2>
+<% if user_signed_in? %>
+  <div class="row">
+    <h2>Create a New Book</h2>
 
-  <%= render 'form' %>
-</div>
+    <%= render 'form' %>
+  </div>
+  <% else %>
+    <% redirect_to 'sign_in' %>
+<% end %>

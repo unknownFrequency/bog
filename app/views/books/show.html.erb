@@ -42,7 +42,7 @@
       </p>
       <br /><br /><br />
       <p>
-        <label>Average Review:</label>
+        <label>Vurdering</label>
         <span id="average_review">
         <%= render partial: 'average_stars', locals: { book: @book } %>
         </span>
@@ -60,7 +60,7 @@
     </section>
 
     <section>
-      <header><h4 class="text-primary">Recent Reviews</h4></header>
+      <header><h4 class="text-primary">Anmeldelser</h4></header>
       <% if @book.recent_reviews.any? %>
         <%= render partial: 'shared/reviews', locals: { reviews: @book.recent_reviews } %>
         <p>
@@ -71,14 +71,14 @@
         </p>
       <% else %>
         <p>
-          Be the first to write a review!
+          Lav den f&oslash;rste anmeldelse! 
         </p>
         <ol id="reviews"></ol>
       <% end %>
     </section>
 
     <nav>
-      <%= link_to 'Write a Review', new_book_review_path(@book),
+      <%= link_to 'Skriv anmeldelse', new_book_review_path(@book),
             remote: true,
             data: { 'update-target' => 'review_form_container' },
             class: 'btn btn-primary' %>
@@ -86,10 +86,14 @@
 
     <div id="review_form_container"></div>
 
+    <div class="write_to_seller">
+      </div>
+
+
     <nav id="book-show-buttons">
-      <%= link_to 'Edit', edit_book_path(@book), class: 'btn btn-default' %>
+      <%= link_to 'Rediger', edit_book_path(@book), class: 'btn btn-default' %>
       <span class='inline-button-form'>
-        <%= button_to "Delete #{@book.title}", @movie,
+        <%= button_to "Slet:  #{@book.title}", @movie,
                      method: :delete,
                      data: { confirm: 'Are you sure?' },
                      class: 'btn btn-danger' %>
