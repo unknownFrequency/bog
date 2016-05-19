@@ -27,22 +27,24 @@
 
 <div class="col-sm-8">
   <div id="books">
-  <% books.each do |book| %>
-    <div class="row well">
-      <% if book.book_photos.first.present? %>
-        <%= link_to(book) do %>
-          <div class="book_cover"><%= image_tag(book.book_photos.first.photo.url(:thumb), alt: 'Billede mangler') %></div>
+  <% books.each_slice(3).to_a.each do |chunk| %>
+    <div class="row well" style="padding-left: 125px;">
+      <% chunk.each do |book| %>
+        <div class="col-sm-4">
+        <% if book.book_photos.first.present? %>
+          <%= link_to(book) do %>
+            <div class="book_cover"><%= image_tag(book.book_photos.first.photo.url(:thumb), alt: 'Billede mangler') %></div>
+          <% end %>
+        <% else %>
+          <%= image_tag('default.png', alt: 'Billede mangler') %>
         <% end %>
-      <% else %>
-        <%= image_tag('default.png', alt: 'Billede mangler') %>
+          <div class="book_info">
+            <%= link_to(truncate(book.title, length: 20), book) %> <br />
+            <p class="forfatter">af: <%=  book.author.titleize %></p>
+            <p class="cover"><%= book.cover %></p>
+          </div>
+        </div>
       <% end %>
-
-      <div class="book_info">
-        <%= link_to(truncate(book.title, length: 20), book) %> <br />
-        <p class="forfatter">af: <%=  book.author.titleize %></p>
-        <p class="cover"><%= book.cover %></p>
-      </div>
-
     </div>
   <% end %>
   </div>
