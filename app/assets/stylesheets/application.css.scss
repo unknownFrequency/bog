@@ -26,6 +26,24 @@ body {
 //
 
 // navigation bottons
+.navbar-default {
+  height: 100px;
+  border-bottom: 1px groove #3070A3;
+}
+
+li#login {
+  list-style-type:none;
+  text-align:right;
+}
+
+ul li#salg {
+  float:right;
+  margin-right:-12px;
+  text-align:right;
+  color:darkred;
+  text-decoration:underline;
+}
+
 div.navigation {
   margin: 0 0 0 -22px;
 }

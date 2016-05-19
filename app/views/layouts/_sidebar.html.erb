@@ -12,12 +12,12 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/books">Kundskabens Træ</a>
+          <a class="navbar-brand" href="/books">Kundskabens Træ <i><span style="font-size:12px; color:black; padding-bottom:9px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Køb og salg af bøger</span></i></a>  
         </div>
 
           <ul class="nav navbar-nav navbar-right">
             <% if !user_signed_in? %>
-              <li ><a style="color:darkred; text-decoration:underline;" href="sign_up">S&aelig;lg b&oslash;ger</a></li>
+              <li id="salg" ><%= link_to "Sælg bøger", new_user_session_path %></li>
             <% else %>
               <li ><a style="color:darkred; text-decoration:underline;" href="/books/new">S&aelig;lg b&oslash;ger</a></li>
             <% end %>
@@ -35,7 +35,12 @@
               </li>
             <% else %>
               <ul>
-                <li ><a style="color:green;" href="users/sign_in">Login</a></li>
+                <li id="login">
+                  <%= link_to image_path('users/sign_in'), title: "Login", data: { caption: "<strong>Lorem   ipsum dolor</strong> sit amet, consetetur sadipscing"} do %>
+                    <%= image_tag 'login.png', size: '32', alt: 'Alt Image Text' %>
+                  <% end %>
+                  <%= link_to "Log ind", new_user_session_path %>
+                </li>
               </ul>
             <% end %>
           </ul>

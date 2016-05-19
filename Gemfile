@@ -31,6 +31,11 @@ gem "carrierwave"
 gem "cocoon"
 gem 'devise'
 
+group :development do
+  gem 'guard-livereload', '~> 2.5', require: false
+  gem "better_errors"
+end
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 

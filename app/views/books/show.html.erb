@@ -40,6 +40,8 @@
         <%= @book.cover %>
       </p>
       <br /><br /><br />
+
+
       <p>
         <label>Vurdering</label>
         <span id="average_review">
@@ -82,11 +84,16 @@
             data: { 'update-target' => 'review_form_container' },
             class: 'btn btn-primary' %>
     </nav>
-
     <div id="review_form_container"></div>
 
-    <div class="write_to_seller">
-    </div>
+    <nav>
+      <%= link_to 'Skriv til sælger', new_message_path(@book),
+            remote: true,
+            data: { 'update-target' => 'write_to_seller' },
+            class: 'btn btn-primary' %>
+    </nav>
+
+    <div class="write_to_seller">    </div>
 
 
     <nav id="book-show-buttons">
