@@ -20,11 +20,6 @@ body {
   border-top: 8px solid #00ff98;
   background-color: #FED5A7;
 }
-
-.col-centered{
-    float: none;
-    margin: 0 auto;
-}
 //
 // HEADER //
 //
@@ -48,13 +43,35 @@ ul li#salg {
   text-decoration:underline;
 }
 
+
+
+
+// Sidebar
+
+div.navigation a:link{color:#000}
+div.navigation a:active{color:#000}
+div.navigation a:visited{color:#000}
+div.navigation a:hover{
+  text-decoration:underline;
+  background-color: #fff;
+}
+
+
 div.navigation {
-  margin: 0 0 0 -22px;
+  margin: -30px 0 0 -22px;
+}
+
+div.navigation ul li {
+  list-style-type: disc;
+  color:#5F708F;
+}
+
+div.navigation ul li:after {
+  color:#00FD96;
 }
 
 ul.navigation_list {
   float:none;
-  list-style-type:none;
   margin: 50px 0 0 0;
 }
 li.navigation_list_hl {
@@ -101,9 +118,6 @@ li.navigation_list_hl {
   padding-right: 8px;
 }
 
-#books {
-
-}
 
 #books .well {
   background-color: #fff;

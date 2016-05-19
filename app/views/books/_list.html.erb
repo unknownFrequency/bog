@@ -1,20 +1,21 @@
 <div class="col-sm-2">
+  <div class="navigation">
+    <ul class="navigation_list">
+      <p class="navigation_list_hl">Genrer</p>
+      <li><%= link_to 'Alle Bøger', books_path %></li>
+      <li><%= link_to 'Filosofi', books_path(search: 'Filosofi') %></li>
+      <li><%= link_to 'Natur', books_path(search: 'Natur') %></li>
+      <li><%= link_to 'Psykologi', books_path(search: 'Psykologi') %></li>
+      <li><%= link_to 'Religion', books_path(search: 'Religion') %></li>
+      <br />
+    </ul>
+  </div>
   <%= form_tag(books_path, :method => "get", id: "search-form") do %>
     <div class="search_container">
       <div class="search_icon"><%= image_tag("search.png", size: "50", :alt => "search_icon", :title => "Søg") %></div>
       <div class="search_field"><%= text_field_tag :search, params[:search], placeholder: "Titel, forfatter" %></div>
       <div class="search_btn"><%= submit_tag "Søg" %></div>
       <br>
-    </div>
-    <div class="navigation">
-      <ul class="navigation_list">
-        <p class="navigation_list_hl">Genrer</p>
-        <li><%= link_to 'Alle Bøger', books_path %></li>
-        <li><%= link_to 'Filosofi', books_path(search: 'Filosofi') %></li>
-        <li><%= link_to 'Natur', books_path(search: 'Natur') %></li>
-        <li><%= link_to 'Psykologi', books_path(search: 'Psykologi') %></li>
-        <li><%= link_to 'Religion', books_path(search: 'Religion') %></li>
-      </ul>
     </div>
   <% end %>
 
