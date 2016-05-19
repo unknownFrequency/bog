@@ -27,23 +27,35 @@ body {
 // navigation bottons
 .navbar-default {
   height: 100px;
-  border-bottom: 1px groove #3070A3;
 }
 
-li#login {
+li.login {
   list-style-type:none;
   text-align:right;
-}
-
-ul li#salg {
+  padding:15px 20px 0 0px;
   float:right;
-  margin-right:-12px;
-  text-align:right;
-  color:darkred;
-  text-decoration:underline;
 }
 
+li.login img {
+  margin-right: 6px;
+}
 
+ul li.salg {
+  text-align:right;
+  margin-top:20px;
+  float:right;
+}
+
+ul li.salg img {
+  margin-right: 7px;
+}
+
+ul li.salg a {
+  display:inline;
+  text-decoration:none;
+  border-bottom: 3px solid #5F708F;  
+  padding:0 0 3px 0px;
+}
 
 
 // Sidebar
@@ -56,6 +68,14 @@ div.navigation a:hover{
   background-color: #fff;
 }
 
+#search-form {
+  margin-top:-30px;
+}
+
+.search_container {
+  margin-top:50px;
+}
+
 
 div.navigation {
   margin: -30px 0 0 -22px;
@@ -64,10 +84,6 @@ div.navigation {
 div.navigation ul li {
   list-style-type: disc;
   color:#5F708F;
-}
-
-div.navigation ul li:after {
-  color:#00FD96;
 }
 
 ul.navigation_list {
@@ -84,8 +100,12 @@ li.navigation_list_hl {
 //  font-family: "Courier New", Courier, monospace;
   font-size: 26px;
   margin: 15px auto 0 auto;
-
 }
+
+.navbar-brand u {
+  text-decoration:none;
+  border-bottom: 3px solid #5F708F;
+}  
 
 .logo {
   //margin: 0 40px 0 0;

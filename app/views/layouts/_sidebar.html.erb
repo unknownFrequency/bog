@@ -12,16 +12,17 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/books">Kundskabens Træ <i><span style="font-size:12px; color:black; padding-bottom:9px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Køb og salg af bøger</span></i></a>  
+          <a class="navbar-brand" href="/books"><u>Kundskabens Træ</u> <i><span style="font-size:12px; color:black; padding-bottom:9px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Køb og salg af bøger</span></i></a>  
         </div>
 
-          <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="salg" >
             <% if !user_signed_in? %>
-              <li id="salg" ><%= link_to "Sælg bøger", new_user_session_path %></li>
+              <%= image_tag 'book.png', size:'24' %><%= link_to "Sælg bøger", new_user_session_path %>
             <% else %>
-              <li ><a style="color:darkred; text-decoration:underline;" href="/books/new">S&aelig;lg b&oslash;ger</a></li>
+              <%= image_tag 'book.png', size:'32' %><a href="/books/new">S&aelig;lg b&oslash;ger</a>
             <% end %>
-
+          </li>
             <% if user_signed_in? %>
               <li id="fat-menu" class="dropdown pull-right">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -29,16 +30,14 @@
                 </a>
                 <ul class="dropdown-menu">
                   <li><%= link_to "Profil", edit_user_registration_path %></li>
-                  <li> <%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
+                  <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
                   <li class="divider"></li>
                 </ul>
               </li>
             <% else %>
               <ul>
-                <li id="login">
-                  <%= link_to image_path('users/sign_in'), title: "Login" do %>
-                    <%= image_tag 'login.png', size: '32', alt: 'Alt Image Text' %>
-                  <% end %>
+                <li class="login">
+                  <%= image_tag 'login.png', size: '32', alt: 'Alt Image Text' %>
                   <%= link_to "Log ind", new_user_session_path %>
                 </li>
               </ul>
