@@ -36,6 +36,34 @@ nav#book-show-buttons {
   margin-top: 2em;
 }
 
+#books .well {
+  background-color: #fff;
+}
+
+#books .book_cover {
+  margin-bottom: 4px;
+}
+
+#books .forfatter {
+  font-size: 9px;
+  color: darkred;
+}
+
+#books .cover {
+  margin-top:-10px;
+  font-size: 9px;
+}
+
+.books_headline {
+  padding-bottom: 20px;
+}
+
+.book_info {
+  float:left;
+  //margin: -6px 0 0 45px;
+  //border-color: #00ff98;
+  font-size: 13px;
+}
 .book_normal_cover {
   margin: 50px 0 0 35px;
 }

@@ -23,6 +23,7 @@ Books::Application.routes.draw do
     end
 
     resources :reviews
+    resources :messages
   end
 
 end

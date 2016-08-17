@@ -13,17 +13,25 @@ class MessagesController < ApplicationController
   end
 
   def new
-    @message = Message.new
-    respond_with(@message)
-  end
-
-  def edit
+    @review = @book.reviews.new
   end
 
   def create
-    @message = Message.new(message_params)
-    @message.save
-    respond_with(@message)
+    @message = @message.new(message_params)
+    respond_with @book, @review  do |format|
+      if message.save
+        flash[:notice] = 'Beskeden er oprettet!' unless request.xhr?
+      else
+        format.html { render 'new', status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def new
+    @message = @book.message.new
+  end
+
+  def edit
   end
 
   def update

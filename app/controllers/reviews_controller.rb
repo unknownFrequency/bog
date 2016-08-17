@@ -20,6 +20,7 @@ class ReviewsController < ApplicationController
 
   def create
     @review = @book.reviews.new(review_params)
+    @review.user_id
     respond_with @book, @review  do |format|
       if @review.save
         flash[:notice] = 'Thanks for your review!' unless request.xhr?
@@ -32,7 +33,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:name, :stars, :summary, :comment)
+    params.require(:review).permit(:name, :stars, :summary, :comment, :user_id)
   end
 
   def set_book

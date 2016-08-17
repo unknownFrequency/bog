@@ -43,6 +43,7 @@
             <%= link_to(truncate(book.title, length: 20), book) %> <br />
             <p class="forfatter">af: <%=  book.author.titleize %></p>
             <p class="cover"><%= book.cover %></p>
+            <p class="cover"><%= book.price.round %> kr.</p>
           </div>
         </div>
       <% end %>
