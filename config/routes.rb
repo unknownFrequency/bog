@@ -2,7 +2,7 @@ Books::Application.routes.draw do
 
   resources :messages
 
-  devise_for :users
+  devise_for :users, :controllers => { registrations: 'registrations' }
   resources :photos
 
   # get "/books" => "books#index", as: 'books'
