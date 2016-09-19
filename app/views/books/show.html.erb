@@ -44,14 +44,11 @@
       <!-- <div id="msg"></div> -->
 
       <ul class="list-inline">
-        <li><%= link_to 'Kontakt sælger', new_message_path(@book),
+        <li><%= link_to 'Kontakt sælger', new_book_message_path(@book),
                         remote: true,
                         data: { 'update-target' => 'review_form_container' },
                 class: 'btn btn-primary' %>
         </li>
-
-
-
         <li>
               <%= link_to 'Skriv anmeldelse', new_book_review_path(@book),
                           remote: true,
@@ -59,6 +56,8 @@
                   class: 'btn btn-primary' %>
         </li>
       </ul>
+
+      <div id="review_form_container"></div>
 
       <p>
         <label>Vurdering</label>
@@ -96,20 +95,18 @@
       <% end %>
     </section>
 
-    <div id="review_form_container"></div>
-
-    <% if user_signed_in? && current_user.id == @book.user_id %>
-    <nav id="book-show-buttons">
-      <%= link_to 'Rediger', edit_book_path(@book), class: 'btn btn-default' %>
-      <span class='inline-button-form'>
-        <%= button_to "Slet:  #{@book.title}", @movie,
-                     method: :delete,
-                     data: { confirm: 'Are you sure?' },
-                     class: 'btn btn-danger' %>
-      </span>
-    </nav>
-    <% end %>
+      <% if user_signed_in? && current_user.id == @book.user_id %>
+      <nav id="book-show-buttons">
+        <%= link_to 'Rediger', edit_book_path(@book), class: 'btn btn-default' %>
+        <span class='inline-button-form'>
+          <%= button_to "Slet:  #{@book.title}", @movie,
+                       method: :delete,
+                       data: { confirm: 'Are you sure?' },
+                       class: 'btn btn-danger' %>
+        </span>
+      </nav>
+      <% end %>
+    </div>
   </article>
-</div>
 
 <div class="col-sm-2"></div>

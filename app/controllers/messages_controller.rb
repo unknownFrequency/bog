@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: [:show, :edit, :update, :destroy]
+  before_action :set_book
 
   respond_to :html
 
@@ -9,11 +10,12 @@ class MessagesController < ApplicationController
   end
 
   def show
-    respond_with(@message)
+    @message = @book.messages.find(params[:id])
+    respond_with @book, @message 
   end
 
   def new
-    @review = @book.message.new
+    @message = @book.messages.new
   end
 
   def create
@@ -25,10 +27,6 @@ class MessagesController < ApplicationController
         format.html { render 'new', status: :unprocessable_entity }
       end
     end
-  end
-
-  def new
-    @message = @book.message.new
   end
 
   def edit
@@ -49,7 +47,11 @@ class MessagesController < ApplicationController
       @message = Message.find(params[:id])
     end
 
+    def set_book
+      @book = Book.find(params[:book_id])
+    end
+
     def message_params
-      params.require(:message).permit(:content, :user_id)
+      params.require(:message).permit(:content, :user_id, :reciever_id, :book_id)
     end
 end

@@ -1,25 +1,21 @@
-<%= form_for(@message) do |f| %>
+<%= form_for([@book, @message], remote: true, authenticity_token: true,  html:{class:'form-horizontal'} ) do |f| %>
   <% if @message.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@message.errors.count, "error") %> prohibited this message from being saved:</h2>
 
       <ul>
-      <% @message.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+        <%= render 'shared/errors', object: @message %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :content %><br>
+  <p>
+  <%= bootstrap_form_field(f, :content) do %>
     <%= f.text_area :content %>
-  </div>
-  <div class="field">
-    <%= f.label :user %><br>
-    <%= f.text_field :user %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <% end %>
+  </p>
+  <p>
+    <%= f.submit class: 'btn btn-primary' %>
+    <%= link_to 'Cancel', book_path(@book), id: 'cancel_review', class: 'btn btn-link' %>
+  </p>
 <% end %>
