@@ -85,12 +85,12 @@
         <p>
 
           <span id="read_reviews">
-            <%= link_to "Læs alle anmeldelser ( #{@book.reviews.count} )", book_reviews_path(@book) %>
+            <%= link_to "Læs alle kommentarer ( #{@book.reviews.count} )", book_reviews_path(@book) %>
           </span>
         </p>
       <% else %>
         <p>
-          Lav den f&oslash;rste anmeldelse! 
+          Giv den f&oslash;rste kommentar!
         </p>
         <ol id="reviews"></ol>
       <% end %>

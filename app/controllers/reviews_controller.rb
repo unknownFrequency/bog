@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
 
+
   respond_to :html, :xml, :json
 
   before_action :set_book
@@ -20,10 +21,12 @@ class ReviewsController < ApplicationController
 
   def create
     @review = @book.reviews.new(review_params)
-    @review.user_id
+    @review['stars'] = nil unless review_params['stars'].to_i.between?(1,5) 
+    @review['user_id'] = current_user.id if current_user
+
     respond_with @book, @review  do |format|
       if @review.save
-        flash[:notice] = 'Thanks for your review!' unless request.xhr?
+        flash[:notice] = 'Din kommentar er tilføjet' unless request.xhr?
       else
         format.html { render 'new', status: :unprocessable_entity }
       end
@@ -33,7 +36,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:name, :stars, :summary, :comment, :user_id)
+    params.require(:review).permit(:stars, :summary, :comment, :user_id)
   end
 
   def set_book

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160328115847) do
+ActiveRecord::Schema.define(version: 20160908101331) do
 
   create_table "book_photos", force: true do |t|
     t.string   "photo"
@@ -40,16 +40,17 @@ ActiveRecord::Schema.define(version: 20160328115847) do
   end
 
   create_table "reviews", force: true do |t|
-    t.string   "name"
     t.string   "summary"
     t.text     "comment"
     t.integer  "book_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "stars"
+    t.integer  "user_id"
   end
 
   add_index "reviews", ["book_id"], name: "index_reviews_on_book_id"
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

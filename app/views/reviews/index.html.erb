@@ -8,7 +8,7 @@
 <%= render partial: 'shared/reviews', locals: { reviews: @reviews } %>
 
 <nav>
-  <%= link_to 'Write a Review', new_book_review_path(@book),
+  <%= link_to 'Skriv kommentar eller anmeldelse', new_book_review_path(@book),
         remote: true,
         data: { 'update-target' => 'review_form_container' },
         class: 'btn btn-primary' %>
