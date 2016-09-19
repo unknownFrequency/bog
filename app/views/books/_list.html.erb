@@ -20,7 +20,7 @@
   <% end %>
 
   <% if @books.present? %>
-    <%= render 'search_books' %>
+    <%= render 'books/search_books' %>
   <% else %>
     <% flash[:notice] = "Der var desværre ingen resultater for #{params[:search]}" %>
   <% end %>

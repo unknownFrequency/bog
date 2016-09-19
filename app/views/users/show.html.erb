@@ -1,2 +1,3 @@
 <h1 class="text-center"><%= @user.username %> <mark style="font-size:12px"><%= @user.created_at.strftime("medlem siden %d/%m/%Y") %></mark></h1>
+<%= render partial: 'books/list', locals: { books: @books } %>
 
