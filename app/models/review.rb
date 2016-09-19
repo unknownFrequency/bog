@@ -5,7 +5,7 @@ class Review < ActiveRecord::Base
   validates :summary, :comment, presence: true
 
   validates :comment,
-            length: { minimum: 15, message: 'should have a bit more than that! (at least 15 characters)' },
+            length: { minimum: 10, message: 'Mindst 10 tegn, tak.' },
             unless: 'comment.blank?'
 
   #validates :stars, inclusion: { in: STARS,

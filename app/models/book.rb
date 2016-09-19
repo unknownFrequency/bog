@@ -23,6 +23,7 @@ class Book < ActiveRecord::Base
   scope :by, ->(author) { where('author = ?', author) }
 
   has_many :reviews, dependent: :destroy
+  has_many :messages, dependent: :destroy
   has_many :book_photos
   accepts_nested_attributes_for :book_photos, allow_destroy: true
 
@@ -36,7 +37,7 @@ class Book < ActiveRecord::Base
     end
   end
 
-  def recent_reviews(recent_count = 2)
+  def recent_reviews(recent_count = 5)
     reviews.order('created_at desc').limit(recent_count)
   end
 

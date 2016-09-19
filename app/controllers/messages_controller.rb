@@ -13,7 +13,7 @@ class MessagesController < ApplicationController
   end
 
   def new
-    @review = @book.reviews.new
+    @review = @book.message.new
   end
 
   def create
