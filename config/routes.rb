@@ -1,18 +1,5 @@
 Books::Application.routes.draw do
 
-  resources :messages
-
-  devise_for :users, :controllers => { registrations: 'registrations' }
-  resources :photos
-
-  # get "/books" => "books#index", as: 'books'
-  # get "/books/new" => "books#new", as: 'new_book'
-  # get "/books/:id" => "books#show", as: 'book'
-  # post "/books" => "books#create"
-  # get "/books/:id/edit" => "books#edit", as: 'edit_book'
-  # patch "/books/:id" => "books#update"
-  # delete "/books/:id" => "books#destroy"
-
   root 'books#index'
 
   resources :books do
@@ -21,9 +8,16 @@ Books::Application.routes.draw do
       get 'bargains'
       get 'bargains/page/:page', :action => :bargains
     end
-
-    resources :reviews
-    resources :messages
   end
 
+    #resources :users, only: [:show]
+    resources :reviews
+    resources :messages
+    resources :photos
+    resources :messages
+
+    devise_for :users, :controllers => { registrations: 'registrations' }
+    get 'users',          to: 'users#index',   as: :all_users
+    get 'users/:id',      to: 'users#show',    as: :single_user
+    get 'users/:id/edit', to: 'users#edit',    as: :edit_user
 end

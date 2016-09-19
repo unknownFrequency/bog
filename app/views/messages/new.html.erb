@@ -1,4 +1,4 @@
-<h3>Besked til <%= User.find(@book.user_id).email %></h3>
+<h3>Besked til <%= link_to User.find(@book.user_id).username, User.find(@book.user_id) %></h3>
 
 <%= render 'form' %>
 
