@@ -1,4 +1,4 @@
-<%= format_average_stars(book) %>
 <% if book.reviews.any? %>
-  (ud af <%= pluralize(book.reviews.count, 'review') %>)
+  <%= star_pics(book.average_stars)  %>
+  ( <%= format_average_stars(book) %> ud af <%= book.reviews.count %> anmeldelser )
 <% end %>

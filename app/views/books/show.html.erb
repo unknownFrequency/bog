@@ -21,6 +21,16 @@
     </p>
     <p><%= @book.abstract %></p>
     <section>
+    <br /><br />
+    <section>
+      <% @book.book_photos.each_with_index do |book_photo, index| %>
+        <% if not index == 0 %>
+          <%= link_to image_path(book_photo.photo.url) do %>
+             <%= image_tag book_photo.photo.url(:thumb), alt: 'Bog udsnit' %>
+           <% end %>
+         <% end %>
+       <% end %>
+      </section>
       <br /><br />
       <header><h4 class="text-primary">Detaljer</h4></header>
 
@@ -39,10 +49,15 @@
       <p class="show_book_description">
         <%= @book.cover %>
       </p>
-      <br /><br /><br />
+      <br /><br />
+      <p>
+        <span id="average_review">
+            <%= render partial: 'average_stars', locals: { book: @book } %>
+        </span>
+      </p>
+    </section>
 
-      <!-- <div id="msg"></div> -->
-
+      <br />
       <ul class="list-inline">
         <li><%= link_to 'Kontakt sælger', new_book_message_path(@book),
                         remote: true,
@@ -56,27 +71,9 @@
                   class: 'btn btn-primary' %>
         </li>
       </ul>
-
       <div id="review_form_container"></div>
 
-      <p>
-        <label>Vurdering</label>
-        <span id="average_review">
-        <%= render partial: 'average_stars', locals: { book: @book } %>
-        </span>
-      </p>
-    </section>
-
-    <section>
-      <% @book.book_photos.each_with_index do |book_photo, index| %>
-        <% if not index == 0 %>
-          <%= link_to image_path(book_photo.photo.url) do %>
-            <%= image_tag book_photo.photo.url(:thumb), alt: 'Bog udsnit' %>
-          <% end %>
-        <% end %>
-      <% end %>
-    </section>
-
+      <br />
     <section>
       <header><h4 class="text-primary">Anmeldelser</h4></header>
       <% if @book.recent_reviews.any? %>

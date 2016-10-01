@@ -7,6 +7,7 @@
       <li><%= link_to 'Natur', books_path(search: 'Natur') %></li>
       <li><%= link_to 'Psykologi', books_path(search: 'Psykologi') %></li>
       <li><%= link_to 'Religion', books_path(search: 'Religion') %></li>
+      <li><%= link_to 'Fiktion', books_path(search: 'Fiktion') %></li>
       <br />
     </ul>
   </div>
@@ -41,7 +42,7 @@
         <% end %>
           <div class="book_info">
             <%= link_to(truncate(book.title, length: 20), book) %> <br />
-            <p class="forfatter">af: <%=  book.author.titleize %></p>
+            <p class="forfatter">af: <%= book.author.titleize %></p>
             <p class="cover"><%= book.cover %></p>
             <p class="cover"><%= book.price.round %> kr.</p>
           </div>
