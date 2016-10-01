@@ -33,6 +33,12 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def destroy
+    @review = @book.reviews.find(params[:id])
+    @review.destroy
+    redirect_to session[:return_to] ||= request.referer
+  end
+
   private
 
   def review_params

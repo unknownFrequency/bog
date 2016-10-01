@@ -7,7 +7,11 @@
   <br />
   <span class="name">af <%= User.find(review.user_id).email if review.user_id %></span>
   <span class="date text-muted"><%= time_ago_in_words(review.created_at) %> siden</span>
-  <p>
-    &quot;<%= review.comment %>&quot;
-  </p>
+  <blockquote><p><%= review.comment %></p></blockquote>
+  <% if user_signed_in? && current_user.id == review.user_id %>
+    <span class='inline-button-form'>
+      <%= link_to 'Slet', book_review_path(params['id'], review.id), 
+            method: :delete, data: {confirm: "Er du sikker?"}, class: 'red'  %>
+    </span>
+  <% end %>
 </li>
