@@ -58,19 +58,21 @@
     </section>
 
       <br />
-      <ul class="list-inline">
-        <li><%= link_to 'Kontakt sælger', new_book_message_path(@book),
-                        remote: true,
-                        data: { 'update-target' => 'review_form_container' },
-                class: 'btn btn-primary' %>
-        </li>
-        <li>
-              <%= link_to 'Skriv anmeldelse', new_book_review_path(@book),
+      <% if user_signed_in? %>
+        <ul class="list-inline">
+          <li><%= link_to 'Kontakt sælger', new_book_message_path(@book),
                           remote: true,
                           data: { 'update-target' => 'review_form_container' },
                   class: 'btn btn-primary' %>
-        </li>
-      </ul>
+          </li>
+          <li>
+                <%= link_to 'Skriv anmeldelse eller kommentar', new_book_review_path(@book),
+                            remote: true,
+                            data: { 'update-target' => 'review_form_container' },
+                    class: 'btn btn-primary' %>
+          </li>
+        </ul>
+        <% end %>
       <div id="review_form_container"></div>
 
       <br />
