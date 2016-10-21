@@ -29,6 +29,12 @@ en:
       next: "Næste &rsaquo;"
       truncate: "&hellip;"
   helpers:
+    label:
+      message:
+        content: "Besked"
+      review:
+        comment: "Kommentar / \n Anmeldelse"
+        stars: "Stjerner"
     page_entries_info:
       one_page:
         display_entries:

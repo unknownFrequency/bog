@@ -24,13 +24,13 @@ class ReviewsController < ApplicationController
     @review['stars'] = nil unless review_params['stars'].to_i.between?(1,5) 
     @review['user_id'] = current_user.id if current_user
 
-    respond_with @book, @review  do |format|
+    #respond_with @book, @review do |format|
       if @review.save
-        flash[:notice] = 'Din kommentar er tilføjet' unless request.xhr?
+        redirect_to 'books'
       else
         format.html { render 'new', status: :unprocessable_entity }
       end
-    end
+    #end
   end
 
   def destroy

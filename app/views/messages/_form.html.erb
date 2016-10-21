@@ -11,11 +11,10 @@
 
   <p>
   <%= bootstrap_form_field(f, :content) do %>
-    <%= f.text_area :content %>
+    <%= f.text_area(:content, size: "50x6") %>
   <% end %>
   </p>
-  <p>
-    <%= f.submit class: 'btn btn-primary' %>
-    <%= link_to 'Cancel', book_path(@book), id: 'cancel_review', class: 'btn btn-link' %>
+  <p style="margin-left:150px">
+    <%= f.submit "Send besked" ,class: 'btn btn-primary' %>
   </p>
 <% end %>

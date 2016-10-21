@@ -57,7 +57,7 @@ class BooksController < ApplicationController
   private
 
   def set_specials_flash
-    flash[:notice] = "!Tilføj felt Paperback/Hardcover! Hos Kundskabens Træ finder du bøger til de søgende og dem som elsker viden. "
+    flash[:notice] = "Hos Kundskabens Træ finder du bøger til de søgende og dem som elsker viden. "
   end
 
   def list_books

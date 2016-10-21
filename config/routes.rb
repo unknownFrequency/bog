@@ -13,7 +13,6 @@ Books::Application.routes.draw do
   end
 
 
-  resources :messages
   resources :photos
   devise_for :users
   get 'users',          to: 'users#index',   as: :all_users
